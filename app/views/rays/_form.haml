@@ -1,0 +1,22 @@
+= form_for ray, :html => { :onsubmit => 'nospam()', :multipart => true } do |form|
+  #errors
+    = form.error_messages
+  
+  %p
+    = label_for 'Title / Description', :name, :accesskey => :t
+    = form.text_field :name
+  %p
+    = label_for 'Code', :code, :accesskey => :c
+    %br
+    = form.text_area :code, :rows => 23, :cols => 100
+  %p
+    = label_for 'Author', :author, :accesskey => :a
+    = form.text_field :author
+  %p
+    = label_for 'Highlight as ', :language_id, :accesskey => :h
+    = form.collection_select :language_id, Language.find(:all, :order => :name), :id, :name
+    code
+  
+  = form.hidden_field :bot
+  
+  = form.submit submit

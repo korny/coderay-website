@@ -1,0 +1,46 @@
+%div
+  .features
+    %p input languages
+    %ul
+      - for lang in %w(C,\ C++ Clojure\ (new) CSS Delphi diff Go Groovy HAML\ (new) HTML Java JavaScript JSON Lua PHP Python ERB Ruby Sass SQL Taskpaper XML YAML).sort_by(&:downcase)
+        %li= lang
+  
+  .features
+    %p output formats
+    %ul
+      - for lang in ['HTML snippet (inline styles)', 'HTML page (CSS classes)', 'Terminal (16 colors)', 'JSON', 'YAML', 'Ruby Array (Tokens)']
+        %li= lang
+    
+    %p tools
+    %ul
+      %li
+        %code coderay
+        executable
+      %li LoC counter (beta)
+      
+    %p license
+    %ul
+      %li
+        %a{ :href => 'https://github.com/rubychan/coderay/blob/master/MIT-LICENSE.txt' } MIT
+  
+  .features
+    %p basic features
+    %ul
+      %li fast: 1 MB/s!
+      %li smart: doesn't choke on crazy code
+      %li safe: handles bogus input gracefully
+      %li pure Ruby implementation
+      %li no dependencies
+      %li plugin system
+      %li line numbers
+      %li nested languages
+      %li encoding-aware (Ruby 1.9+)
+      %li extensive test suite
+    %p
+      %a{ :href => 'https://travis-ci.org/rubychan/coderay' } supported platforms
+    %ul
+      %li MRI 1.8.7
+      %li MRI 1.9.3
+      %li MRI 2.0+
+      %li JRuby 1.7
+      %li Rubinius 2.0

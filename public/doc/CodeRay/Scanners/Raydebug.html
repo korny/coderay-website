@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+
+<title>class CodeRay::Scanners::Raydebug - CodeRay Documentation</title>
+
+<link type="text/css" media="screen" href="../../rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../";
+</script>
+
+<script type="text/javascript" charset="utf-8" src="../../js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../js/navigation.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../js/search_index.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../js/search.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../js/searcher.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../js/darkfish.js"></script>
+
+
+<body id="top" class="class">
+<nav id="metadata">
+  <nav id="home-section" class="section">
+  <h3 class="section-header">
+    <a href="../../index.html">Home</a>
+    <a href="../../table_of_contents.html#classes">Classes</a>
+    <a href="../../table_of_contents.html#methods">Methods</a>
+  </h3>
+</nav>
+
+
+  <nav id="search-section" class="section project-section" class="initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <h3 class="section-header">
+      <input type="text" name="search" placeholder="Search" id="search-field"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </h3>
+  </form>
+
+  <ul id="search-results" class="initially-hidden"></ul>
+</nav>
+
+
+  <div id="file-metadata">
+    <nav id="file-list-section" class="section">
+  <h3 class="section-header">Defined In</h3>
+  <ul>
+    <li>lib/coderay/scanners/raydebug.rb
+  </ul>
+</nav>
+
+    
+  </div>
+
+  <div id="class-metadata">
+    
+    <nav id="parent-class-section" class="section">
+  <h3 class="section-header">Parent</h3>
+  
+  <p class="link"><a href="Scanner.html">CodeRay::Scanners::Scanner</a>
+  
+</nav>
+
+    
+    <!-- Method Quickref -->
+<nav id="method-list-section" class="section">
+  <h3 class="section-header">Methods</h3>
+
+  <ul class="link-list">
+    
+    <li><a href="#method-i-scan_tokens">#scan_tokens</a>
+    
+  </ul>
+</nav>
+
+  </div>
+
+  <div id="project-metadata">
+    <nav id="fileindex-section" class="section project-section">
+  <h3 class="section-header">Pages</h3>
+
+  <ul>
+  
+    <li class="file"><a href="../../README_INDEX_rdoc.html">README_INDEX</a>
+  
+  </ul>
+</nav>
+
+    <nav id="classindex-section" class="section project-section">
+  <h3 class="section-header">Class and Module Index</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="../../CodeRay.html">CodeRay</a>
+  
+    <li><a href="../../CodeRay/Duo.html">CodeRay::Duo</a>
+  
+    <li><a href="../../CodeRay/Encoders.html">CodeRay::Encoders</a>
+  
+    <li><a href="../../CodeRay/Encoders/CommentFilter.html">CodeRay::Encoders::CommentFilter</a>
+  
+    <li><a href="../../CodeRay/Encoders/Count.html">CodeRay::Encoders::Count</a>
+  
+    <li><a href="../../CodeRay/Encoders/Debug.html">CodeRay::Encoders::Debug</a>
+  
+    <li><a href="../../CodeRay/Encoders/Div.html">CodeRay::Encoders::Div</a>
+  
+    <li><a href="../../CodeRay/Encoders/Encoder.html">CodeRay::Encoders::Encoder</a>
+  
+    <li><a href="../../CodeRay/Encoders/Filter.html">CodeRay::Encoders::Filter</a>
+  
+    <li><a href="../../CodeRay/Encoders/HTML.html">CodeRay::Encoders::HTML</a>
+  
+    <li><a href="../../CodeRay/Encoders/HTML/Output.html">CodeRay::Encoders::HTML::Output</a>
+  
+    <li><a href="../../CodeRay/Encoders/JSON.html">CodeRay::Encoders::JSON</a>
+  
+    <li><a href="../../CodeRay/Encoders/LinesOfCode.html">CodeRay::Encoders::LinesOfCode</a>
+  
+    <li><a href="../../CodeRay/Encoders/Null.html">CodeRay::Encoders::Null</a>
+  
+    <li><a href="../../CodeRay/Encoders/Page.html">CodeRay::Encoders::Page</a>
+  
+    <li><a href="../../CodeRay/Encoders/Span.html">CodeRay::Encoders::Span</a>
+  
+    <li><a href="../../CodeRay/Encoders/Statistic.html">CodeRay::Encoders::Statistic</a>
+  
+    <li><a href="../../CodeRay/Encoders/Terminal.html">CodeRay::Encoders::Terminal</a>
+  
+    <li><a href="../../CodeRay/Encoders/Text.html">CodeRay::Encoders::Text</a>
+  
+    <li><a href="../../CodeRay/Encoders/TokenKindFilter.html">CodeRay::Encoders::TokenKindFilter</a>
+  
+    <li><a href="../../CodeRay/Encoders/XML.html">CodeRay::Encoders::XML</a>
+  
+    <li><a href="../../CodeRay/Encoders/YAML.html">CodeRay::Encoders::YAML</a>
+  
+    <li><a href="../../CodeRay/FileType.html">CodeRay::FileType</a>
+  
+    <li><a href="../../CodeRay/ForRedCloth.html">CodeRay::ForRedCloth</a>
+  
+    <li><a href="../../CodeRay/GZip.html">CodeRay::GZip</a>
+  
+    <li><a href="../../CodeRay/Plugin.html">CodeRay::Plugin</a>
+  
+    <li><a href="../../CodeRay/PluginHost.html">CodeRay::PluginHost</a>
+  
+    <li><a href="../../CodeRay/Scanners.html">CodeRay::Scanners</a>
+  
+    <li><a href="../../CodeRay/Scanners/C.html">CodeRay::Scanners::C</a>
+  
+    <li><a href="../../CodeRay/Scanners/CPlusPlus.html">CodeRay::Scanners::CPlusPlus</a>
+  
+    <li><a href="../../CodeRay/Scanners/CSS.html">CodeRay::Scanners::CSS</a>
+  
+    <li><a href="../../CodeRay/Scanners/Clojure.html">CodeRay::Scanners::Clojure</a>
+  
+    <li><a href="../../CodeRay/Scanners/Debug.html">CodeRay::Scanners::Debug</a>
+  
+    <li><a href="../../CodeRay/Scanners/Delphi.html">CodeRay::Scanners::Delphi</a>
+  
+    <li><a href="../../CodeRay/Scanners/Diff.html">CodeRay::Scanners::Diff</a>
+  
+    <li><a href="../../CodeRay/Scanners/ERB.html">CodeRay::Scanners::ERB</a>
+  
+    <li><a href="../../CodeRay/Scanners/Groovy.html">CodeRay::Scanners::Groovy</a>
+  
+    <li><a href="../../CodeRay/Scanners/HAML.html">CodeRay::Scanners::HAML</a>
+  
+    <li><a href="../../CodeRay/Scanners/HTML.html">CodeRay::Scanners::HTML</a>
+  
+    <li><a href="../../CodeRay/Scanners/JSON.html">CodeRay::Scanners::JSON</a>
+  
+    <li><a href="../../CodeRay/Scanners/Java.html">CodeRay::Scanners::Java</a>
+  
+    <li><a href="../../CodeRay/Scanners/JavaScript.html">CodeRay::Scanners::JavaScript</a>
+  
+    <li><a href="../../CodeRay/Scanners/PHP.html">CodeRay::Scanners::PHP</a>
+  
+    <li><a href="../../CodeRay/Scanners/Python.html">CodeRay::Scanners::Python</a>
+  
+    <li><a href="../../CodeRay/Scanners/Raydebug.html">CodeRay::Scanners::Raydebug</a>
+  
+    <li><a href="../../CodeRay/Scanners/Ruby.html">CodeRay::Scanners::Ruby</a>
+  
+    <li><a href="../../CodeRay/Scanners/SQL.html">CodeRay::Scanners::SQL</a>
+  
+    <li><a href="../../CodeRay/Scanners/Scanner.html">CodeRay::Scanners::Scanner</a>
+  
+    <li><a href="../../CodeRay/Scanners/Text.html">CodeRay::Scanners::Text</a>
+  
+    <li><a href="../../CodeRay/Scanners/XML.html">CodeRay::Scanners::XML</a>
+  
+    <li><a href="../../CodeRay/Scanners/YAML.html">CodeRay::Scanners::YAML</a>
+  
+    <li><a href="../../CodeRay/Styles.html">CodeRay::Styles</a>
+  
+    <li><a href="../../CodeRay/Styles/Alpha.html">CodeRay::Styles::Alpha</a>
+  
+    <li><a href="../../CodeRay/Styles/Style.html">CodeRay::Styles::Style</a>
+  
+    <li><a href="../../CodeRay/Tokens.html">CodeRay::Tokens</a>
+  
+    <li><a href="../../CodeRay/Tokens/Undumping.html">CodeRay::Tokens::Undumping</a>
+  
+    <li><a href="../../CodeRay/TokensProxy.html">CodeRay::TokensProxy</a>
+  
+    <li><a href="../../CodeRay/WordList.html">CodeRay::WordList</a>
+  
+    <li><a href="../../CodeRay/WordList/CaseIgnoring.html">CodeRay::WordList::CaseIgnoring</a>
+  
+  </ul>
+</nav>
+
+  </div>
+</nav>
+
+<div id="documentation">
+  <h1 class="class">class CodeRay::Scanners::Raydebug</h1>
+
+  <div id="description" class="description">
+    
+<h1 id="label-Debug+Scanner"><a href="Debug.html">Debug</a> <a href="Scanner.html">Scanner</a></h1>
+
+<p>Parses the output of the <a
+href="../Encoders/Debug.html">Encoders::Debug</a> encoder.</p>
+
+  </div><!-- description -->
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    <!-- Methods -->
+    
+     <section id="protected-instance-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Protected Instance Methods</h3>
+
+    
+      <div id="method-i-scan_tokens" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">scan_tokens</span><span
+            class="method-args">(encoder, options)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="scan_tokens-source">
+            <pre><span class="ruby-comment"># File lib/coderay/scanners/raydebug.rb, line 15</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">scan_tokens</span> <span class="ruby-identifier">encoder</span>, <span class="ruby-identifier">options</span>
+
+  <span class="ruby-identifier">opened_tokens</span> = []
+
+  <span class="ruby-keyword">until</span> <span class="ruby-identifier">eos?</span>
+
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">match</span> = <span class="ruby-identifier">scan</span>(<span class="ruby-regexp">%r\s+/</span>)
+      <span class="ruby-identifier">encoder</span>.<span class="ruby-identifier">text_token</span> <span class="ruby-identifier">match</span>, <span class="ruby-value">:space</span>
+      
+    <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">match</span> = <span class="ruby-identifier">scan</span>(<span class="ruby-regexp">%r (\w+) \( ( [^\)\\]* ( \\. [^\)\\]* )* ) /</span>)
+      <span class="ruby-identifier">kind</span> = <span class="ruby-keyword">self</span>[<span class="ruby-value">1</span>]
+      <span class="ruby-identifier">encoder</span>.<span class="ruby-identifier">text_token</span> <span class="ruby-identifier">kind</span>, <span class="ruby-value">:class</span>
+      <span class="ruby-identifier">encoder</span>.<span class="ruby-identifier">text_token</span> <span class="ruby-string">'('</span>, <span class="ruby-value">:operator</span>
+      <span class="ruby-identifier">match</span> = <span class="ruby-keyword">self</span>[<span class="ruby-value">2</span>]
+      <span class="ruby-identifier">encoder</span>.<span class="ruby-identifier">text_token</span> <span class="ruby-identifier">match</span>, <span class="ruby-identifier">kind</span>.<span class="ruby-identifier">to_sym</span>
+      <span class="ruby-identifier">encoder</span>.<span class="ruby-identifier">text_token</span> <span class="ruby-identifier">match</span>, <span class="ruby-value">:operator</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">match</span> = <span class="ruby-identifier">scan</span>(<span class="ruby-regexp">%r\)/</span>)
+      
+    <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">match</span> = <span class="ruby-identifier">scan</span>(<span class="ruby-regexp">%r (\w+) ([&lt;\[]) /</span>)
+      <span class="ruby-identifier">kind</span> = <span class="ruby-keyword">self</span>[<span class="ruby-value">1</span>]
+      <span class="ruby-keyword">case</span> <span class="ruby-keyword">self</span>[<span class="ruby-value">2</span>]
+      <span class="ruby-keyword">when</span> <span class="ruby-string">'&lt;'</span>
+        <span class="ruby-identifier">encoder</span>.<span class="ruby-identifier">text_token</span> <span class="ruby-identifier">kind</span>, <span class="ruby-value">:class</span>
+      <span class="ruby-keyword">when</span> <span class="ruby-string">'['</span>
+        <span class="ruby-identifier">encoder</span>.<span class="ruby-identifier">text_token</span> <span class="ruby-identifier">kind</span>, <span class="ruby-value">:class</span>
+      <span class="ruby-keyword">else</span>
+        <span class="ruby-identifier">raise</span> <span class="ruby-string">'CodeRay bug: This case should not be reached.'</span>
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-identifier">kind</span> = <span class="ruby-identifier">kind</span>.<span class="ruby-identifier">to_sym</span>
+      <span class="ruby-identifier">opened_tokens</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">kind</span>
+      <span class="ruby-identifier">encoder</span>.<span class="ruby-identifier">begin_group</span> <span class="ruby-identifier">kind</span>
+      <span class="ruby-identifier">encoder</span>.<span class="ruby-identifier">text_token</span> <span class="ruby-keyword">self</span>[<span class="ruby-value">2</span>], <span class="ruby-value">:operator</span>
+      
+    <span class="ruby-keyword">elsif</span> <span class="ruby-operator">!</span><span class="ruby-identifier">opened_tokens</span>.<span class="ruby-identifier">empty?</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">match</span> = <span class="ruby-identifier">scan</span>(<span class="ruby-regexp">%r [&gt;\]] /</span>)
+      <span class="ruby-identifier">encoder</span>.<span class="ruby-identifier">text_token</span> <span class="ruby-identifier">match</span>, <span class="ruby-value">:operator</span>
+      <span class="ruby-identifier">encoder</span>.<span class="ruby-identifier">end_group</span> <span class="ruby-identifier">opened_tokens</span>.<span class="ruby-identifier">pop</span>
+      
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">encoder</span>.<span class="ruby-identifier">text_token</span> <span class="ruby-identifier">getch</span>, <span class="ruby-value">:space</span>
+      
+    <span class="ruby-keyword">end</span>
+    
+  <span class="ruby-keyword">end</span>
+  
+  <span class="ruby-identifier">encoder</span>.<span class="ruby-identifier">end_group</span> <span class="ruby-identifier">opened_tokens</span>.<span class="ruby-identifier">pop</span> <span class="ruby-keyword">until</span> <span class="ruby-identifier">opened_tokens</span>.<span class="ruby-identifier">empty?</span>
+  
+  <span class="ruby-identifier">encoder</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- scan_tokens-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- scan_tokens-method -->
+
+    
+    </section><!-- protected-instance-method-details -->
+  
+  </section><!-- 5Buntitled-5D -->
+
+</div><!-- documentation -->
+
+
+<footer id="validator-badges">
+  <p><a href="http://validator.w3.org/check/referer">[Validate]</a>
+  <p>Generated by <a href="https://github.com/rdoc/rdoc">RDoc</a> 3.12.
+  <p>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish Rdoc Generator</a> 3.
+</footer>
+

@@ -1,0 +1,945 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+
+<title>module CodeRay - CodeRay Documentation</title>
+
+<link type="text/css" media="screen" href="./rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+</script>
+
+<script type="text/javascript" charset="utf-8" src="./js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/navigation.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/search_index.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/search.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/searcher.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/darkfish.js"></script>
+
+
+<body id="top" class="module">
+<nav id="metadata">
+  <nav id="home-section" class="section">
+  <h3 class="section-header">
+    <a href="./index.html">Home</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </h3>
+</nav>
+
+
+  <nav id="search-section" class="section project-section" class="initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <h3 class="section-header">
+      <input type="text" name="search" placeholder="Search" id="search-field"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </h3>
+  </form>
+
+  <ul id="search-results" class="initially-hidden"></ul>
+</nav>
+
+
+  <div id="file-metadata">
+    <nav id="file-list-section" class="section">
+  <h3 class="section-header">Defined In</h3>
+  <ul>
+    <li>lib/coderay/duo.rb
+    <li>lib/coderay/encoder.rb
+    <li>lib/coderay/encoders/_map.rb
+    <li>lib/coderay/encoders/comment_filter.rb
+    <li>lib/coderay/encoders/count.rb
+    <li>lib/coderay/encoders/debug.rb
+    <li>lib/coderay/encoders/div.rb
+    <li>lib/coderay/encoders/filter.rb
+    <li>lib/coderay/encoders/html/css.rb
+    <li>lib/coderay/encoders/html/numbering.rb
+    <li>lib/coderay/encoders/html/output.rb
+    <li>lib/coderay/encoders/html.rb
+    <li>lib/coderay/encoders/json.rb
+    <li>lib/coderay/encoders/lines_of_code.rb
+    <li>lib/coderay/encoders/null.rb
+    <li>lib/coderay/encoders/page.rb
+    <li>lib/coderay/encoders/span.rb
+    <li>lib/coderay/encoders/statistic.rb
+    <li>lib/coderay/encoders/terminal.rb
+    <li>lib/coderay/encoders/text.rb
+    <li>lib/coderay/encoders/token_kind_filter.rb
+    <li>lib/coderay/encoders/xml.rb
+    <li>lib/coderay/encoders/yaml.rb
+    <li>lib/coderay/for_redcloth.rb
+    <li>lib/coderay/helpers/file_type.rb
+    <li>lib/coderay/helpers/gzip.rb
+    <li>lib/coderay/helpers/plugin.rb
+    <li>lib/coderay/helpers/word_list.rb
+    <li>lib/coderay/scanner.rb
+    <li>lib/coderay/scanners/_map.rb
+    <li>lib/coderay/scanners/c.rb
+    <li>lib/coderay/scanners/clojure.rb
+    <li>lib/coderay/scanners/cpp.rb
+    <li>lib/coderay/scanners/css.rb
+    <li>lib/coderay/scanners/debug.rb
+    <li>lib/coderay/scanners/delphi.rb
+    <li>lib/coderay/scanners/diff.rb
+    <li>lib/coderay/scanners/erb.rb
+    <li>lib/coderay/scanners/groovy.rb
+    <li>lib/coderay/scanners/haml.rb
+    <li>lib/coderay/scanners/html.rb
+    <li>lib/coderay/scanners/java/builtin_types.rb
+    <li>lib/coderay/scanners/java.rb
+    <li>lib/coderay/scanners/java_script.rb
+    <li>lib/coderay/scanners/json.rb
+    <li>lib/coderay/scanners/php.rb
+    <li>lib/coderay/scanners/python.rb
+    <li>lib/coderay/scanners/raydebug.rb
+    <li>lib/coderay/scanners/ruby/patterns.rb
+    <li>lib/coderay/scanners/ruby/string_state.rb
+    <li>lib/coderay/scanners/ruby.rb
+    <li>lib/coderay/scanners/sql.rb
+    <li>lib/coderay/scanners/text.rb
+    <li>lib/coderay/scanners/xml.rb
+    <li>lib/coderay/scanners/yaml.rb
+    <li>lib/coderay/style.rb
+    <li>lib/coderay/styles/_map.rb
+    <li>lib/coderay/styles/alpha.rb
+    <li>lib/coderay/token_kinds.rb
+    <li>lib/coderay/tokens.rb
+    <li>lib/coderay/tokens_proxy.rb
+    <li>lib/coderay/version.rb
+    <li>lib/coderay.rb
+  </ul>
+</nav>
+
+    
+  </div>
+
+  <div id="class-metadata">
+    
+    
+    
+    <!-- Method Quickref -->
+<nav id="method-list-section" class="section">
+  <h3 class="section-header">Methods</h3>
+
+  <ul class="link-list">
+    
+    <li><a href="#method-c-coderay_path">::coderay_path</a>
+    
+    <li><a href="#method-c-encode">::encode</a>
+    
+    <li><a href="#method-c-encode_file">::encode_file</a>
+    
+    <li><a href="#method-c-encode_tokens">::encode_tokens</a>
+    
+    <li><a href="#method-c-encoder">::encoder</a>
+    
+    <li><a href="#method-c-get_scanner_options">::get_scanner_options</a>
+    
+    <li><a href="#method-c-highlight">::highlight</a>
+    
+    <li><a href="#method-c-highlight_file">::highlight_file</a>
+    
+    <li><a href="#method-c-scan">::scan</a>
+    
+    <li><a href="#method-c-scan_file">::scan_file</a>
+    
+    <li><a href="#method-c-scanner">::scanner</a>
+    
+  </ul>
+</nav>
+
+  </div>
+
+  <div id="project-metadata">
+    <nav id="fileindex-section" class="section project-section">
+  <h3 class="section-header">Pages</h3>
+
+  <ul>
+  
+    <li class="file"><a href="./README_INDEX_rdoc.html">README_INDEX</a>
+  
+  </ul>
+</nav>
+
+    <nav id="classindex-section" class="section project-section">
+  <h3 class="section-header">Class and Module Index</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="./CodeRay.html">CodeRay</a>
+  
+    <li><a href="./CodeRay/Duo.html">CodeRay::Duo</a>
+  
+    <li><a href="./CodeRay/Encoders.html">CodeRay::Encoders</a>
+  
+    <li><a href="./CodeRay/Encoders/CommentFilter.html">CodeRay::Encoders::CommentFilter</a>
+  
+    <li><a href="./CodeRay/Encoders/Count.html">CodeRay::Encoders::Count</a>
+  
+    <li><a href="./CodeRay/Encoders/Debug.html">CodeRay::Encoders::Debug</a>
+  
+    <li><a href="./CodeRay/Encoders/Div.html">CodeRay::Encoders::Div</a>
+  
+    <li><a href="./CodeRay/Encoders/Encoder.html">CodeRay::Encoders::Encoder</a>
+  
+    <li><a href="./CodeRay/Encoders/Filter.html">CodeRay::Encoders::Filter</a>
+  
+    <li><a href="./CodeRay/Encoders/HTML.html">CodeRay::Encoders::HTML</a>
+  
+    <li><a href="./CodeRay/Encoders/HTML/Output.html">CodeRay::Encoders::HTML::Output</a>
+  
+    <li><a href="./CodeRay/Encoders/JSON.html">CodeRay::Encoders::JSON</a>
+  
+    <li><a href="./CodeRay/Encoders/LinesOfCode.html">CodeRay::Encoders::LinesOfCode</a>
+  
+    <li><a href="./CodeRay/Encoders/Null.html">CodeRay::Encoders::Null</a>
+  
+    <li><a href="./CodeRay/Encoders/Page.html">CodeRay::Encoders::Page</a>
+  
+    <li><a href="./CodeRay/Encoders/Span.html">CodeRay::Encoders::Span</a>
+  
+    <li><a href="./CodeRay/Encoders/Statistic.html">CodeRay::Encoders::Statistic</a>
+  
+    <li><a href="./CodeRay/Encoders/Terminal.html">CodeRay::Encoders::Terminal</a>
+  
+    <li><a href="./CodeRay/Encoders/Text.html">CodeRay::Encoders::Text</a>
+  
+    <li><a href="./CodeRay/Encoders/TokenKindFilter.html">CodeRay::Encoders::TokenKindFilter</a>
+  
+    <li><a href="./CodeRay/Encoders/XML.html">CodeRay::Encoders::XML</a>
+  
+    <li><a href="./CodeRay/Encoders/YAML.html">CodeRay::Encoders::YAML</a>
+  
+    <li><a href="./CodeRay/FileType.html">CodeRay::FileType</a>
+  
+    <li><a href="./CodeRay/ForRedCloth.html">CodeRay::ForRedCloth</a>
+  
+    <li><a href="./CodeRay/GZip.html">CodeRay::GZip</a>
+  
+    <li><a href="./CodeRay/Plugin.html">CodeRay::Plugin</a>
+  
+    <li><a href="./CodeRay/PluginHost.html">CodeRay::PluginHost</a>
+  
+    <li><a href="./CodeRay/Scanners.html">CodeRay::Scanners</a>
+  
+    <li><a href="./CodeRay/Scanners/C.html">CodeRay::Scanners::C</a>
+  
+    <li><a href="./CodeRay/Scanners/CPlusPlus.html">CodeRay::Scanners::CPlusPlus</a>
+  
+    <li><a href="./CodeRay/Scanners/CSS.html">CodeRay::Scanners::CSS</a>
+  
+    <li><a href="./CodeRay/Scanners/Clojure.html">CodeRay::Scanners::Clojure</a>
+  
+    <li><a href="./CodeRay/Scanners/Debug.html">CodeRay::Scanners::Debug</a>
+  
+    <li><a href="./CodeRay/Scanners/Delphi.html">CodeRay::Scanners::Delphi</a>
+  
+    <li><a href="./CodeRay/Scanners/Diff.html">CodeRay::Scanners::Diff</a>
+  
+    <li><a href="./CodeRay/Scanners/ERB.html">CodeRay::Scanners::ERB</a>
+  
+    <li><a href="./CodeRay/Scanners/Groovy.html">CodeRay::Scanners::Groovy</a>
+  
+    <li><a href="./CodeRay/Scanners/HAML.html">CodeRay::Scanners::HAML</a>
+  
+    <li><a href="./CodeRay/Scanners/HTML.html">CodeRay::Scanners::HTML</a>
+  
+    <li><a href="./CodeRay/Scanners/JSON.html">CodeRay::Scanners::JSON</a>
+  
+    <li><a href="./CodeRay/Scanners/Java.html">CodeRay::Scanners::Java</a>
+  
+    <li><a href="./CodeRay/Scanners/JavaScript.html">CodeRay::Scanners::JavaScript</a>
+  
+    <li><a href="./CodeRay/Scanners/PHP.html">CodeRay::Scanners::PHP</a>
+  
+    <li><a href="./CodeRay/Scanners/Python.html">CodeRay::Scanners::Python</a>
+  
+    <li><a href="./CodeRay/Scanners/Raydebug.html">CodeRay::Scanners::Raydebug</a>
+  
+    <li><a href="./CodeRay/Scanners/Ruby.html">CodeRay::Scanners::Ruby</a>
+  
+    <li><a href="./CodeRay/Scanners/SQL.html">CodeRay::Scanners::SQL</a>
+  
+    <li><a href="./CodeRay/Scanners/Scanner.html">CodeRay::Scanners::Scanner</a>
+  
+    <li><a href="./CodeRay/Scanners/Text.html">CodeRay::Scanners::Text</a>
+  
+    <li><a href="./CodeRay/Scanners/XML.html">CodeRay::Scanners::XML</a>
+  
+    <li><a href="./CodeRay/Scanners/YAML.html">CodeRay::Scanners::YAML</a>
+  
+    <li><a href="./CodeRay/Styles.html">CodeRay::Styles</a>
+  
+    <li><a href="./CodeRay/Styles/Alpha.html">CodeRay::Styles::Alpha</a>
+  
+    <li><a href="./CodeRay/Styles/Style.html">CodeRay::Styles::Style</a>
+  
+    <li><a href="./CodeRay/Tokens.html">CodeRay::Tokens</a>
+  
+    <li><a href="./CodeRay/Tokens/Undumping.html">CodeRay::Tokens::Undumping</a>
+  
+    <li><a href="./CodeRay/TokensProxy.html">CodeRay::TokensProxy</a>
+  
+    <li><a href="./CodeRay/WordList.html">CodeRay::WordList</a>
+  
+    <li><a href="./CodeRay/WordList/CaseIgnoring.html">CodeRay::WordList::CaseIgnoring</a>
+  
+  </ul>
+</nav>
+
+  </div>
+</nav>
+
+<div id="documentation">
+  <h1 class="module">module CodeRay</h1>
+
+  <div id="description" class="description">
+    
+<h1 id="label-CodeRay+Library"><a href="CodeRay.html">CodeRay</a> Library</h1>
+
+<p><a href="CodeRay.html">CodeRay</a> is a Ruby library for syntax
+highlighting.</p>
+
+<p>I try to make <a href="CodeRay.html">CodeRay</a> easy to use and intuitive,
+but at the same time fully featured, complete, fast and efficient.</p>
+
+<p>See README.</p>
+
+<p>It consists mainly of</p>
+<ul><li>
+<p>the main engine: <a href="CodeRay.html">CodeRay</a> (<a
+href="CodeRay/Scanners/Scanner.html">Scanners::Scanner</a>, <a
+href="CodeRay/Tokens.html">Tokens</a>, <a
+href="CodeRay/Encoders/Encoder.html">Encoders::Encoder</a>)</p>
+</li><li>
+<p>the plugin system: <a href="CodeRay/PluginHost.html">PluginHost</a>, <a
+href="CodeRay/Plugin.html">Plugin</a></p>
+</li><li>
+<p>the scanners in <a href="CodeRay/Scanners.html">CodeRay::Scanners</a></p>
+</li><li>
+<p>the encoders in <a href="CodeRay/Encoders.html">CodeRay::Encoders</a></p>
+</li><li>
+<p>the styles in <a href="CodeRay/Styles.html">CodeRay::Styles</a></p>
+</li></ul>
+
+<p>Here’s a fancy graphic to light up this gray docu:</p>
+
+<p><img src="http://cycnus.de/raindark/coderay/scheme.png" /></p>
+
+<h2 id="label-Documentation">Documentation</h2>
+
+<p>See <a href="CodeRay.html">CodeRay</a>, <a
+href="CodeRay/Encoders.html">Encoders</a>, <a
+href="CodeRay/Scanners.html">Scanners</a>, <a
+href="CodeRay/Tokens.html">Tokens</a>.</p>
+
+<h2 id="label-Usage">Usage</h2>
+
+<p>Remember you need RubyGems to use <a href="CodeRay.html">CodeRay</a>,
+unless you have it in your load path. Run Ruby with -rubygems option if
+required.</p>
+
+<h3 id="label-Highlight+Ruby+code+in+a+string+as+html">Highlight Ruby code in a string as html</h3>
+
+<pre class="ruby"><span class="ruby-identifier">require</span> <span class="ruby-string">'coderay'</span>
+<span class="ruby-identifier">print</span> <span class="ruby-constant">CodeRay</span>.<span class="ruby-identifier">scan</span>(<span class="ruby-string">'puts &quot;Hello, world!&quot;'</span>, :<span class="ruby-identifier">ruby</span>).<span class="ruby-identifier">html</span>
+
+<span class="ruby-comment"># prints something like this:</span>
+<span class="ruby-identifier">puts</span> <span class="ruby-operator">&lt;</span><span class="ruby-identifier">span</span> <span class="ruby-keyword">class</span>=<span class="ruby-string">&quot;s&quot;</span><span class="ruby-operator">&gt;</span>&amp;<span class="ruby-identifier">quot</span>;<span class="ruby-constant">Hello</span>, <span class="ruby-identifier">world!</span>&amp;<span class="ruby-identifier">quot</span>;<span class="ruby-operator">&lt;</span><span class="ruby-regexp">%rspan&gt;
+</span></pre>
+
+<h3 id="label-Highlight+C+code+from+a+file+in+a+html+div">Highlight C code from a file in a html div</h3>
+
+<pre class="ruby"><span class="ruby-identifier">require</span> <span class="ruby-string">'coderay'</span>
+<span class="ruby-identifier">print</span> <span class="ruby-constant">CodeRay</span>.<span class="ruby-identifier">scan</span>(<span class="ruby-constant">File</span>.<span class="ruby-identifier">read</span>(<span class="ruby-string">'ruby.h'</span>), :<span class="ruby-identifier">c</span>).<span class="ruby-identifier">div</span>
+<span class="ruby-identifier">print</span> <span class="ruby-constant">CodeRay</span>.<span class="ruby-identifier">scan_file</span>(<span class="ruby-string">'ruby.h'</span>).<span class="ruby-identifier">html</span>.<span class="ruby-identifier">div</span>
+</pre>
+
+<p>You can include this div in your page. The used CSS styles can be printed
+with</p>
+
+<pre>% coderay_stylesheet</pre>
+
+<h3 id="label-Highlight+without+typing+too+much">Highlight without typing too much</h3>
+
+<p>If you are one of the hasty (or lazy, or extremely curious) people, just
+run this file:</p>
+
+<pre>% ruby -rubygems /path/to/coderay/coderay.rb &gt; example.html</pre>
+
+<p>and look at the file it created in your browser.</p>
+
+<h1 id="label-CodeRay+Module"><a href="CodeRay.html">CodeRay</a> Module</h1>
+
+<p>The <a href="CodeRay.html">CodeRay</a> module provides convenience methods
+for the engine.</p>
+<ul><li>
+<p>The <code>lang</code> and <code>format</code> arguments select Scanner and
+Encoder to use. These are simply lower-case symbols, like
+<code>:python</code> or <code>:html</code>.</p>
+</li><li>
+<p>All methods take an optional hash as last parameter, <code>options</code>,
+that is send to the Encoder / Scanner.</p>
+</li><li>
+<p>Input and language are always sorted in this order: <code>code</code>,
+<code>lang</code>. (This is in alphabetical order, if you need a mnemonic
+;)</p>
+</li></ul>
+
+<p>You should be able to highlight everything you want just using these
+methods; so there is no need to dive into CodeRay’s deep class hierarchy.</p>
+
+<p>The examples in the demo directory demonstrate common cases using this
+interface.</p>
+
+<h1 id="label-Basic+Access+Ways">Basic Access Ways</h1>
+
+<p>Read this to get a general view what <a href="CodeRay.html">CodeRay</a>
+provides.</p>
+
+<h2 id="label-Scanning">Scanning</h2>
+
+<p>Scanning means analysing an input string, splitting it up into <a
+href="CodeRay/Tokens.html">Tokens</a>. Each Token knows about what type it
+is: string, comment, class name, etc.</p>
+
+<p>Each <code>lang</code> (language) has its own Scanner; for example,
+<code>:ruby</code> code is handled by <a
+href="CodeRay/Scanners/Ruby.html">CodeRay::Scanners::Ruby</a>.</p>
+<dl class="rdoc-list note-list"><dt><a href="CodeRay.html#method-c-scan">::scan</a>
+<dd>
+<p>Scan a string in a given language into <a
+href="CodeRay/Tokens.html">Tokens</a>. This is the most common method to
+use.</p>
+</dd><dt><a href="CodeRay.html#method-c-scan_file">::scan_file</a>
+<dd>
+<p>Scan a file and guess the language using <a
+href="CodeRay/FileType.html">FileType</a>.</p>
+</dd></dl>
+
+<p>The <a href="CodeRay/Tokens.html">Tokens</a> object you get from these
+methods can encode itself; see <a href="CodeRay/Tokens.html">Tokens</a>.</p>
+
+<h2 id="label-Encoding">Encoding</h2>
+
+<p>Encoding means compiling <a href="CodeRay/Tokens.html">Tokens</a> into an
+output. This can be colored HTML or LaTeX, a textual statistic or just the
+number of non-whitespace tokens.</p>
+
+<p>Each Encoder provides output in a specific <code>format</code>, so you
+select <a href="CodeRay/Encoders.html">Encoders</a> via formats like
+<code>:html</code> or <code>:statistic</code>.</p>
+<dl class="rdoc-list note-list"><dt><a href="CodeRay.html#method-c-encode">::encode</a>
+<dd>
+<p>Scan and encode a string in a given language.</p>
+</dd><dt><a href="CodeRay.html#method-c-encode_tokens">::encode_tokens</a>
+<dd>
+<p>Encode the given tokens.</p>
+</dd><dt><a href="CodeRay.html#method-c-encode_file">::encode_file</a>
+<dd>
+<p>Scan a file, guess the language using <a
+href="CodeRay/FileType.html">FileType</a> and encode it.</p>
+</dd></dl>
+
+<h2 id="label-All-in-One+Encoding">All-in-One Encoding</h2>
+<dl class="rdoc-list note-list"><dt><a href="CodeRay.html#method-c-encode">::encode</a>
+<dd>
+<p>Highlight a string with a given input and output format.</p>
+</dd></dl>
+
+<h2 id="label-Instanciating">Instanciating</h2>
+
+<p>You can use an Encoder instance to highlight multiple inputs. This way, the
+setup for this Encoder must only be done once.</p>
+<dl class="rdoc-list note-list"><dt><a href="CodeRay.html#method-c-encoder">::encoder</a>
+<dd>
+<p>Create an Encoder instance with format and options.</p>
+</dd><dt><a href="CodeRay.html#method-c-scanner">::scanner</a>
+<dd>
+<p>Create an Scanner instance for lang, with ” as default code.</p>
+</dd></dl>
+
+<p>To make use of <a href="CodeRay.html#method-c-scanner">::scanner</a>, use
+CodeRay::Scanner::code=.</p>
+
+<p>The scanning methods provide more flexibility; we recommend to use these.</p>
+
+<h2 id="label-Reusing+Scanners+and+Encoders">Reusing <a href="CodeRay/Scanners.html">Scanners</a> and <a href="CodeRay/Encoders.html">Encoders</a></h2>
+
+<p>If you want to re-use scanners and encoders (because that is faster), see
+<a href="CodeRay/Duo.html">CodeRay::Duo</a> for the most convenient (and
+recommended) interface.</p>
+
+  </div><!-- description -->
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+    <!-- Constants -->
+    <section id="constants-list" class="section">
+      <h3 class="section-header">Constants</h3>
+      <dl>
+      
+        <dt id="CODERAY_PATH">CODERAY_PATH
+        
+        <dd class="description">
+        
+      
+        <dt id="TokenKinds">TokenKinds
+        
+        <dd class="description"><p>A Hash of all known token kinds and their associated CSS classes.</p>
+        
+      
+        <dt id="VERSION">VERSION
+        
+        <dd class="description">
+        
+      
+      </dl>
+    </section>
+    
+
+    
+
+    <!-- Methods -->
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Public Class Methods</h3>
+
+    
+      <div id="method-c-coderay_path" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">coderay_path</span><span
+            class="method-args">(*path)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Assuming the path is a subpath of lib/coderay/</p>
+          
+
+          
+          <div class="method-source-code" id="coderay_path-source">
+            <pre><span class="ruby-comment"># File lib/coderay.rb, line 132</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">coderay_path</span> *<span class="ruby-identifier">path</span>
+  <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span> <span class="ruby-constant">CODERAY_PATH</span>, *<span class="ruby-identifier">path</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- coderay_path-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- coderay_path-method -->
+
+    
+      <div id="method-c-encode" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">encode</span><span
+            class="method-args">(code, lang, format, options = {})</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Encode a string.</p>
+
+<p>This scans <code>code</code> with the the Scanner for <code>lang</code> and
+then encodes it with the Encoder for <code>format</code>.
+<code>options</code> will be passed to the Encoder.</p>
+
+<p>See CodeRay::Encoder.encode.</p>
+          
+
+          
+          <div class="method-source-code" id="encode-source">
+            <pre><span class="ruby-comment"># File lib/coderay.rb, line 196</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">encode</span> <span class="ruby-identifier">code</span>, <span class="ruby-identifier">lang</span>, <span class="ruby-identifier">format</span>, <span class="ruby-identifier">options</span> = {}
+  <span class="ruby-identifier">encoder</span>(<span class="ruby-identifier">format</span>, <span class="ruby-identifier">options</span>).<span class="ruby-identifier">encode</span> <span class="ruby-identifier">code</span>, <span class="ruby-identifier">lang</span>, <span class="ruby-identifier">options</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- encode-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- encode-method -->
+
+    
+      <div id="method-c-encode_file" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">encode_file</span><span
+            class="method-args">(filename, format, options = {})</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Encodes <code>filename</code> (a path to a code file) with the Scanner for
+<code>lang</code>.</p>
+
+<p>See <a href="CodeRay.html#method-c-scan_file">::scan_file</a>. Notice that
+the second argument is the output <code>format</code>, not the input
+language.</p>
+
+<p>Example:</p>
+
+<pre class="ruby"><span class="ruby-identifier">require</span> <span class="ruby-string">'coderay'</span>
+<span class="ruby-identifier">page</span> = <span class="ruby-constant">CodeRay</span>.<span class="ruby-identifier">encode_file</span> <span class="ruby-string">'some_c_code.c'</span>, :<span class="ruby-identifier">html</span>
+</pre>
+          
+
+          
+          <div class="method-source-code" id="encode_file-source">
+            <pre><span class="ruby-comment"># File lib/coderay.rb, line 221</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">encode_file</span> <span class="ruby-identifier">filename</span>, <span class="ruby-identifier">format</span>, <span class="ruby-identifier">options</span> = {}
+  <span class="ruby-identifier">tokens</span> = <span class="ruby-identifier">scan_file</span> <span class="ruby-identifier">filename</span>, <span class="ruby-value">:auto</span>, <span class="ruby-identifier">get_scanner_options</span>(<span class="ruby-identifier">options</span>)
+  <span class="ruby-identifier">encode_tokens</span> <span class="ruby-identifier">tokens</span>, <span class="ruby-identifier">format</span>, <span class="ruby-identifier">options</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- encode_file-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- encode_file-method -->
+
+    
+      <div id="method-c-encode_tokens" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">encode_tokens</span><span
+            class="method-args">(tokens, format, options = {})</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Encode pre-scanned <a href="CodeRay/Tokens.html">Tokens</a>. Use this
+together with <a href="CodeRay.html#method-c-scan">::scan</a>:</p>
+
+<pre class="ruby"><span class="ruby-identifier">require</span> <span class="ruby-string">'coderay'</span>
+
+<span class="ruby-comment"># Highlight a short Ruby code example in a HTML span</span>
+<span class="ruby-identifier">tokens</span> = <span class="ruby-constant">CodeRay</span>.<span class="ruby-identifier">scan</span> <span class="ruby-string">'1 + 2'</span>, :<span class="ruby-identifier">ruby</span>
+<span class="ruby-identifier">puts</span> <span class="ruby-constant">CodeRay</span>.<span class="ruby-identifier">encode_tokens</span>(<span class="ruby-identifier">tokens</span>, :<span class="ruby-identifier">span</span>)
+</pre>
+          
+
+          
+          <div class="method-source-code" id="encode_tokens-source">
+            <pre><span class="ruby-comment"># File lib/coderay.rb, line 209</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">encode_tokens</span> <span class="ruby-identifier">tokens</span>, <span class="ruby-identifier">format</span>, <span class="ruby-identifier">options</span> = {}
+  <span class="ruby-identifier">encoder</span>(<span class="ruby-identifier">format</span>, <span class="ruby-identifier">options</span>).<span class="ruby-identifier">encode_tokens</span> <span class="ruby-identifier">tokens</span>, <span class="ruby-identifier">options</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- encode_tokens-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- encode_tokens-method -->
+
+    
+      <div id="method-c-encoder" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">encoder</span><span
+            class="method-args">(format, options = {})</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Finds the Encoder class for <code>format</code> and creates an instance,
+passing <code>options</code> to it.</p>
+
+<p>Example:</p>
+
+<pre class="ruby"><span class="ruby-identifier">require</span> <span class="ruby-string">'coderay'</span>
+
+<span class="ruby-identifier">stats</span> = <span class="ruby-constant">CodeRay</span>.<span class="ruby-identifier">encoder</span>(:<span class="ruby-identifier">statistic</span>)
+<span class="ruby-identifier">stats</span>.<span class="ruby-identifier">encode</span>(<span class="ruby-string">&quot;puts 17 + 4\n&quot;</span>, :<span class="ruby-identifier">ruby</span>)
+
+<span class="ruby-identifier">puts</span> <span class="ruby-string">'%d out of %d tokens have the kind :integer.'</span> <span class="ruby-operator">%</span> [
+  <span class="ruby-identifier">stats</span>.<span class="ruby-identifier">type_stats</span>[:<span class="ruby-identifier">integer</span>].<span class="ruby-identifier">count</span>,
+  <span class="ruby-identifier">stats</span>.<span class="ruby-identifier">real_token_count</span>
+]
+<span class="ruby-comment">#-&gt; 2 out of 4 tokens have the kind :integer.</span>
+</pre>
+          
+
+          
+          <div class="method-source-code" id="encoder-source">
+            <pre><span class="ruby-comment"># File lib/coderay.rb, line 260</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">encoder</span> <span class="ruby-identifier">format</span>, <span class="ruby-identifier">options</span> = {}
+  <span class="ruby-constant">Encoders</span>[<span class="ruby-identifier">format</span>].<span class="ruby-identifier">new</span> <span class="ruby-identifier">options</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- encoder-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- encoder-method -->
+
+    
+      <div id="method-c-get_scanner_options" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">get_scanner_options</span><span
+            class="method-args">(options)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Extract the options for the scanner from the <code>options</code> hash.</p>
+
+<p>Returns an empty Hash if <code>:scanner_options</code> is not set.</p>
+
+<p>This is used if a method like <a
+href="CodeRay.html#method-c-encode">::encode</a> has to provide options for
+Encoder <em>and</em> scanner.</p>
+          
+
+          
+          <div class="method-source-code" id="get_scanner_options-source">
+            <pre><span class="ruby-comment"># File lib/coderay.rb, line 278</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">get_scanner_options</span> <span class="ruby-identifier">options</span>
+  <span class="ruby-identifier">options</span>.<span class="ruby-identifier">fetch</span> <span class="ruby-value">:scanner_options</span>, {}
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- get_scanner_options-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- get_scanner_options-method -->
+
+    
+      <div id="method-c-highlight" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">highlight</span><span
+            class="method-args">(code, lang, options = { :css => :class })</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Highlight a string into a HTML &lt;div&gt;.</p>
+
+<p>CSS styles use classes, so you have to include a stylesheet in your output.</p>
+
+<p>See encode.</p>
+          
+
+          
+          <div class="method-source-code" id="highlight-source">
+            <pre><span class="ruby-comment"># File lib/coderay.rb, line 232</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">highlight</span> <span class="ruby-identifier">code</span>, <span class="ruby-identifier">lang</span>, <span class="ruby-identifier">options</span> = { <span class="ruby-value">:css</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">:class</span> }, <span class="ruby-identifier">format</span> = <span class="ruby-value">:div</span>
+  <span class="ruby-identifier">encode</span> <span class="ruby-identifier">code</span>, <span class="ruby-identifier">lang</span>, <span class="ruby-identifier">format</span>, <span class="ruby-identifier">options</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- highlight-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- highlight-method -->
+
+    
+      <div id="method-c-highlight_file" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">highlight_file</span><span
+            class="method-args">(filename, options = { :css => :class })</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Highlight a file into a HTML &lt;div&gt;.</p>
+
+<p>CSS styles use classes, so you have to include a stylesheet in your output.</p>
+
+<p>See encode.</p>
+          
+
+          
+          <div class="method-source-code" id="highlight_file-source">
+            <pre><span class="ruby-comment"># File lib/coderay.rb, line 242</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">highlight_file</span> <span class="ruby-identifier">filename</span>, <span class="ruby-identifier">options</span> = { <span class="ruby-value">:css</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">:class</span> }, <span class="ruby-identifier">format</span> = <span class="ruby-value">:div</span>
+  <span class="ruby-identifier">encode_file</span> <span class="ruby-identifier">filename</span>, <span class="ruby-identifier">format</span>, <span class="ruby-identifier">options</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- highlight_file-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- highlight_file-method -->
+
+    
+      <div id="method-c-scan" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">scan</span><span
+            class="method-args">(code, lang, options = {})</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Scans the given <code>code</code> (a String) with the Scanner for
+<code>lang</code>.</p>
+
+<p>This is a simple way to use <a href="CodeRay.html">CodeRay</a>. Example:</p>
+
+<pre class="ruby"><span class="ruby-identifier">require</span> <span class="ruby-string">'coderay'</span>
+<span class="ruby-identifier">page</span> = <span class="ruby-constant">CodeRay</span>.<span class="ruby-identifier">scan</span>(<span class="ruby-string">&quot;puts 'Hello, world!'&quot;</span>, :<span class="ruby-identifier">ruby</span>).<span class="ruby-identifier">html</span>
+</pre>
+
+<p>See also demo/demo_simple.</p>
+          
+
+          
+          <div class="method-source-code" id="scan-source">
+            <pre><span class="ruby-comment"># File lib/coderay.rb, line 167</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">scan</span> <span class="ruby-identifier">code</span>, <span class="ruby-identifier">lang</span>, <span class="ruby-identifier">options</span> = {}, &amp;<span class="ruby-identifier">block</span>
+  <span class="ruby-comment"># FIXME: return a proxy for direct-stream encoding</span>
+  <span class="ruby-constant">TokensProxy</span>.<span class="ruby-identifier">new</span> <span class="ruby-identifier">code</span>, <span class="ruby-identifier">lang</span>, <span class="ruby-identifier">options</span>, <span class="ruby-identifier">block</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- scan-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- scan-method -->
+
+    
+      <div id="method-c-scan_file" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">scan_file</span><span
+            class="method-args">(filename, lang = :auto, options = {})</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Scans <code>filename</code> (a path to a code file) with the Scanner for
+<code>lang</code>.</p>
+
+<p>If <code>lang</code> is :auto or omitted, the <a
+href="CodeRay/FileType.html">CodeRay::FileType</a> module is used to
+determine it. If it cannot find out what type it is, it uses <a
+href="CodeRay/Scanners/Text.html">CodeRay::Scanners::Text</a>.</p>
+
+<p>Calls <a href="CodeRay.html#method-c-scan">::scan</a>.</p>
+
+<p>Example:</p>
+
+<pre class="ruby"><span class="ruby-identifier">require</span> <span class="ruby-string">'coderay'</span>
+<span class="ruby-identifier">page</span> = <span class="ruby-constant">CodeRay</span>.<span class="ruby-identifier">scan_file</span>(<span class="ruby-string">'some_c_code.c'</span>).<span class="ruby-identifier">html</span>
+</pre>
+          
+
+          
+          <div class="method-source-code" id="scan_file-source">
+            <pre><span class="ruby-comment"># File lib/coderay.rb, line 183</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">scan_file</span> <span class="ruby-identifier">filename</span>, <span class="ruby-identifier">lang</span> = <span class="ruby-value">:auto</span>, <span class="ruby-identifier">options</span> = {}, &amp;<span class="ruby-identifier">block</span>
+  <span class="ruby-identifier">lang</span> = <span class="ruby-constant">FileType</span>.<span class="ruby-identifier">fetch</span> <span class="ruby-identifier">filename</span>, <span class="ruby-value">:text</span>, <span class="ruby-keyword">true</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">lang</span> <span class="ruby-operator">==</span> <span class="ruby-value">:auto</span>
+  <span class="ruby-identifier">code</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">read</span> <span class="ruby-identifier">filename</span>
+  <span class="ruby-identifier">scan</span> <span class="ruby-identifier">code</span>, <span class="ruby-identifier">lang</span>, <span class="ruby-identifier">options</span>, &amp;<span class="ruby-identifier">block</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- scan_file-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- scan_file-method -->
+
+    
+      <div id="method-c-scanner" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">scanner</span><span
+            class="method-args">(lang, options = {})</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Finds the Scanner class for <code>lang</code> and creates an instance,
+passing <code>options</code> to it.</p>
+
+<p>See Scanner.new.</p>
+          
+
+          
+          <div class="method-source-code" id="scanner-source">
+            <pre><span class="ruby-comment"># File lib/coderay.rb, line 268</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">scanner</span> <span class="ruby-identifier">lang</span>, <span class="ruby-identifier">options</span> = {}, &amp;<span class="ruby-identifier">block</span>
+  <span class="ruby-constant">Scanners</span>[<span class="ruby-identifier">lang</span>].<span class="ruby-identifier">new</span> <span class="ruby-string">''</span>, <span class="ruby-identifier">options</span>, &amp;<span class="ruby-identifier">block</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- scanner-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- scanner-method -->
+
+    
+    </section><!-- public-class-method-details -->
+  
+  </section><!-- 5Buntitled-5D -->
+
+</div><!-- documentation -->
+
+
+<footer id="validator-badges">
+  <p><a href="http://validator.w3.org/check/referer">[Validate]</a>
+  <p>Generated by <a href="https://github.com/rdoc/rdoc">RDoc</a> 3.12.
+  <p>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish Rdoc Generator</a> 3.
+</footer>
+

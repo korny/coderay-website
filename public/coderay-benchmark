@@ -1,0 +1,26 @@
+#!/bin/sh
+
+set -e
+CODERAY_TEMP="$HOME/.coderay-temp"
+
+mkdir $CODERAY_TEMP
+
+echo "Downloading CodeRay..."
+gem install --remote --no-rdoc --no-ri --install-dir $CODERAY_TEMP coderay --version 0.9.7         > /dev/null
+gem install --remote --no-rdoc --no-ri --install-dir $CODERAY_TEMP coderay --version 1.0.0.738.pre > /dev/null
+
+echo "Downloading example code..."
+EXAMPLE_CODE=$CODERAY_TEMP/coderay-example-input.c
+curl -s http://svn.rubychan.de/coderay/trunk/bench/example.c > $EXAMPLE_CODE
+
+echo
+echo "Benchmarking with CodeRay 0.9.7:"
+time GEM_PATH=$CODERAY_TEMP "$CODERAY_TEMP/bin/coderay" _0.9.7_ -c -page < $EXAMPLE_CODE > /dev/null
+
+echo
+echo "Benchmarking with latest CodeRay:"
+time GEM_PATH=$CODERAY_TEMP "$CODERAY_TEMP/bin/coderay" _1.0.0.738.pre_ -c -page < $EXAMPLE_CODE > /dev/null
+
+echo
+echo "Cleaning up..."
+rm -r $CODERAY_TEMP

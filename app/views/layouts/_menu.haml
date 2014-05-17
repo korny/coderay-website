@@ -1,0 +1,29 @@
+#title
+  %table
+    %tr
+      %td.logo
+        - logo = @ray_controller ? 'coderay-service.png' : 'coderay.png'
+        = link_to image_tag(logo, :alt => 'CodeRay logo', :id => 'logo'), root_url
+        %a.version{ :href => 'http://rubygems.org/gems/coderay' }>= latest_coderay_version
+      - unless @ray_controller
+        %td.menu.first
+          %h4.tryit
+            = link_to "Try it!", :controller => 'rays'
+          %h5 paste to highlight
+      %td.menu.third
+        %h4.download
+          = link_to "Download", :controller => 'download'
+        %h5
+          = link_to 'Source', :controller => 'download', :action => :source
+          |
+          %a{ :href => 'https://github.com/rubychan/coderay/issues' } Bugtracker
+      %td.menu.forth
+        %h4.documentation
+          %a{ :href => '/doc/' } Documentation
+        %h5 in autumnal colors
+      %td.menu.second
+        %h4
+          %a{ :href => 'http://cYcnus.de/raindark/coderay' }= image_tag('why.png', :class => 'icon')
+        %h5 Old website
+
+== <a href="http://github.com/rubychan/coderay"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png" alt="Fork me on GitHub"></a>

@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+
+<title>class CodeRay::Duo - CodeRay Documentation</title>
+
+<link type="text/css" media="screen" href="../rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+</script>
+
+<script type="text/javascript" charset="utf-8" src="../js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/navigation.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/search_index.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/search.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/searcher.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/darkfish.js"></script>
+
+
+<body id="top" class="class">
+<nav id="metadata">
+  <nav id="home-section" class="section">
+  <h3 class="section-header">
+    <a href="../index.html">Home</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </h3>
+</nav>
+
+
+  <nav id="search-section" class="section project-section" class="initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <h3 class="section-header">
+      <input type="text" name="search" placeholder="Search" id="search-field"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </h3>
+  </form>
+
+  <ul id="search-results" class="initially-hidden"></ul>
+</nav>
+
+
+  <div id="file-metadata">
+    <nav id="file-list-section" class="section">
+  <h3 class="section-header">Defined In</h3>
+  <ul>
+    <li>lib/coderay/duo.rb
+  </ul>
+</nav>
+
+    
+  </div>
+
+  <div id="class-metadata">
+    
+    <nav id="parent-class-section" class="section">
+  <h3 class="section-header">Parent</h3>
+  
+  <p class="link">Object
+  
+</nav>
+
+    
+    <!-- Method Quickref -->
+<nav id="method-list-section" class="section">
+  <h3 class="section-header">Methods</h3>
+
+  <ul class="link-list">
+    
+    <li><a href="#method-c-5B-5D">::[]</a>
+    
+    <li><a href="#method-c-new">::new</a>
+    
+    <li><a href="#method-i-call">#call</a>
+    
+    <li><a href="#method-i-encode">#encode</a>
+    
+    <li><a href="#method-i-encoder">#encoder</a>
+    
+    <li><a href="#method-i-highlight">#highlight</a>
+    
+    <li><a href="#method-i-scanner">#scanner</a>
+    
+  </ul>
+</nav>
+
+  </div>
+
+  <div id="project-metadata">
+    <nav id="fileindex-section" class="section project-section">
+  <h3 class="section-header">Pages</h3>
+
+  <ul>
+  
+    <li class="file"><a href="../README_INDEX_rdoc.html">README_INDEX</a>
+  
+  </ul>
+</nav>
+
+    <nav id="classindex-section" class="section project-section">
+  <h3 class="section-header">Class and Module Index</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="../CodeRay.html">CodeRay</a>
+  
+    <li><a href="../CodeRay/Duo.html">CodeRay::Duo</a>
+  
+    <li><a href="../CodeRay/Encoders.html">CodeRay::Encoders</a>
+  
+    <li><a href="../CodeRay/Encoders/CommentFilter.html">CodeRay::Encoders::CommentFilter</a>
+  
+    <li><a href="../CodeRay/Encoders/Count.html">CodeRay::Encoders::Count</a>
+  
+    <li><a href="../CodeRay/Encoders/Debug.html">CodeRay::Encoders::Debug</a>
+  
+    <li><a href="../CodeRay/Encoders/Div.html">CodeRay::Encoders::Div</a>
+  
+    <li><a href="../CodeRay/Encoders/Encoder.html">CodeRay::Encoders::Encoder</a>
+  
+    <li><a href="../CodeRay/Encoders/Filter.html">CodeRay::Encoders::Filter</a>
+  
+    <li><a href="../CodeRay/Encoders/HTML.html">CodeRay::Encoders::HTML</a>
+  
+    <li><a href="../CodeRay/Encoders/HTML/Output.html">CodeRay::Encoders::HTML::Output</a>
+  
+    <li><a href="../CodeRay/Encoders/JSON.html">CodeRay::Encoders::JSON</a>
+  
+    <li><a href="../CodeRay/Encoders/LinesOfCode.html">CodeRay::Encoders::LinesOfCode</a>
+  
+    <li><a href="../CodeRay/Encoders/Null.html">CodeRay::Encoders::Null</a>
+  
+    <li><a href="../CodeRay/Encoders/Page.html">CodeRay::Encoders::Page</a>
+  
+    <li><a href="../CodeRay/Encoders/Span.html">CodeRay::Encoders::Span</a>
+  
+    <li><a href="../CodeRay/Encoders/Statistic.html">CodeRay::Encoders::Statistic</a>
+  
+    <li><a href="../CodeRay/Encoders/Terminal.html">CodeRay::Encoders::Terminal</a>
+  
+    <li><a href="../CodeRay/Encoders/Text.html">CodeRay::Encoders::Text</a>
+  
+    <li><a href="../CodeRay/Encoders/TokenKindFilter.html">CodeRay::Encoders::TokenKindFilter</a>
+  
+    <li><a href="../CodeRay/Encoders/XML.html">CodeRay::Encoders::XML</a>
+  
+    <li><a href="../CodeRay/Encoders/YAML.html">CodeRay::Encoders::YAML</a>
+  
+    <li><a href="../CodeRay/FileType.html">CodeRay::FileType</a>
+  
+    <li><a href="../CodeRay/ForRedCloth.html">CodeRay::ForRedCloth</a>
+  
+    <li><a href="../CodeRay/GZip.html">CodeRay::GZip</a>
+  
+    <li><a href="../CodeRay/Plugin.html">CodeRay::Plugin</a>
+  
+    <li><a href="../CodeRay/PluginHost.html">CodeRay::PluginHost</a>
+  
+    <li><a href="../CodeRay/Scanners.html">CodeRay::Scanners</a>
+  
+    <li><a href="../CodeRay/Scanners/C.html">CodeRay::Scanners::C</a>
+  
+    <li><a href="../CodeRay/Scanners/CPlusPlus.html">CodeRay::Scanners::CPlusPlus</a>
+  
+    <li><a href="../CodeRay/Scanners/CSS.html">CodeRay::Scanners::CSS</a>
+  
+    <li><a href="../CodeRay/Scanners/Clojure.html">CodeRay::Scanners::Clojure</a>
+  
+    <li><a href="../CodeRay/Scanners/Debug.html">CodeRay::Scanners::Debug</a>
+  
+    <li><a href="../CodeRay/Scanners/Delphi.html">CodeRay::Scanners::Delphi</a>
+  
+    <li><a href="../CodeRay/Scanners/Diff.html">CodeRay::Scanners::Diff</a>
+  
+    <li><a href="../CodeRay/Scanners/ERB.html">CodeRay::Scanners::ERB</a>
+  
+    <li><a href="../CodeRay/Scanners/Groovy.html">CodeRay::Scanners::Groovy</a>
+  
+    <li><a href="../CodeRay/Scanners/HAML.html">CodeRay::Scanners::HAML</a>
+  
+    <li><a href="../CodeRay/Scanners/HTML.html">CodeRay::Scanners::HTML</a>
+  
+    <li><a href="../CodeRay/Scanners/JSON.html">CodeRay::Scanners::JSON</a>
+  
+    <li><a href="../CodeRay/Scanners/Java.html">CodeRay::Scanners::Java</a>
+  
+    <li><a href="../CodeRay/Scanners/JavaScript.html">CodeRay::Scanners::JavaScript</a>
+  
+    <li><a href="../CodeRay/Scanners/PHP.html">CodeRay::Scanners::PHP</a>
+  
+    <li><a href="../CodeRay/Scanners/Python.html">CodeRay::Scanners::Python</a>
+  
+    <li><a href="../CodeRay/Scanners/Raydebug.html">CodeRay::Scanners::Raydebug</a>
+  
+    <li><a href="../CodeRay/Scanners/Ruby.html">CodeRay::Scanners::Ruby</a>
+  
+    <li><a href="../CodeRay/Scanners/SQL.html">CodeRay::Scanners::SQL</a>
+  
+    <li><a href="../CodeRay/Scanners/Scanner.html">CodeRay::Scanners::Scanner</a>
+  
+    <li><a href="../CodeRay/Scanners/Text.html">CodeRay::Scanners::Text</a>
+  
+    <li><a href="../CodeRay/Scanners/XML.html">CodeRay::Scanners::XML</a>
+  
+    <li><a href="../CodeRay/Scanners/YAML.html">CodeRay::Scanners::YAML</a>
+  
+    <li><a href="../CodeRay/Styles.html">CodeRay::Styles</a>
+  
+    <li><a href="../CodeRay/Styles/Alpha.html">CodeRay::Styles::Alpha</a>
+  
+    <li><a href="../CodeRay/Styles/Style.html">CodeRay::Styles::Style</a>
+  
+    <li><a href="../CodeRay/Tokens.html">CodeRay::Tokens</a>
+  
+    <li><a href="../CodeRay/Tokens/Undumping.html">CodeRay::Tokens::Undumping</a>
+  
+    <li><a href="../CodeRay/TokensProxy.html">CodeRay::TokensProxy</a>
+  
+    <li><a href="../CodeRay/WordList.html">CodeRay::WordList</a>
+  
+    <li><a href="../CodeRay/WordList/CaseIgnoring.html">CodeRay::WordList::CaseIgnoring</a>
+  
+  </ul>
+</nav>
+
+  </div>
+</nav>
+
+<div id="documentation">
+  <h1 class="class">class CodeRay::Duo</h1>
+
+  <div id="description" class="description">
+    
+<h1 id="label-Duo"><a href="Duo.html">Duo</a></h1>
+
+<p>A <a href="Duo.html">Duo</a> is a convenient way to use <a
+href="../CodeRay.html">CodeRay</a>. You just create a <a
+href="Duo.html">Duo</a>, giving it a lang (language of the input code) and
+a format (desired output format), and call <a
+href="Duo.html#method-i-highlight">#highlight</a> with the code.</p>
+
+<p><a href="Duo.html">Duo</a> makes it easy to re-use both scanner and encoder
+for a repetitive task. It also provides a very easy interface syntax:</p>
+
+<pre class="ruby"><span class="ruby-identifier">require</span> <span class="ruby-string">'coderay'</span>
+<span class="ruby-constant">CodeRay</span><span class="ruby-operator">::</span><span class="ruby-constant">Duo</span>[:<span class="ruby-identifier">python</span>, :<span class="ruby-identifier">div</span>].<span class="ruby-identifier">highlight</span> <span class="ruby-string">'import this'</span>
+</pre>
+
+<p>Until you want to do uncommon things with <a
+href="../CodeRay.html">CodeRay</a>, I recommend to use this method, since
+it takes care of everything.</p>
+
+  </div><!-- description -->
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+    <!-- Attributes -->
+    <section id="attribute-method-details" class="method-section section">
+      <h3 class="section-header">Attributes</h3>
+
+      
+      <div id="attribute-i-format" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">format</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-lang" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">lang</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-options" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">options</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+    </section><!-- attribute-method-details -->
+    
+
+    <!-- Methods -->
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Public Class Methods</h3>
+
+    
+      <div id="method-c-5B-5D" class="method-detail method-alias">
+        
+        <div class="method-heading">
+          <span class="method-name">[]</span><span
+            class="method-args">(lang = nil, format = nil, options = {})</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>To allow calls like Duo[:ruby, :html].highlight.</p>
+          
+
+          
+        </div>
+
+        
+
+        
+        <div class="aliases">
+          Alias for: <a href="Duo.html#method-c-new">new</a>
+        </div>
+        
+      </div><!-- 5B-5D-method -->
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">(lang = nil, format = nil, options = {})</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Create a new <a href="Duo.html">Duo</a>, holding a lang and a format to
+highlight code.</p>
+
+<p>simple:</p>
+
+<pre>CodeRay::Duo[:ruby, :html].highlight 'bla 42'</pre>
+
+<p>with options:</p>
+
+<pre class="ruby"><span class="ruby-constant">CodeRay</span><span class="ruby-operator">::</span><span class="ruby-constant">Duo</span>[:<span class="ruby-identifier">ruby</span>, :<span class="ruby-identifier">html</span>, :<span class="ruby-identifier">hint</span> =<span class="ruby-operator">&gt;</span> :<span class="ruby-identifier">debug</span>].<span class="ruby-identifier">highlight</span> <span class="ruby-string">'????::??'</span>
+</pre>
+
+<p>alternative syntax without options:</p>
+
+<pre class="ruby"><span class="ruby-constant">CodeRay</span><span class="ruby-operator">::</span><span class="ruby-constant">Duo</span>[:<span class="ruby-identifier">ruby</span> =<span class="ruby-operator">&gt;</span> :<span class="ruby-identifier">statistic</span>].<span class="ruby-identifier">encode</span> <span class="ruby-string">'class &lt;&lt; self; end'</span>
+</pre>
+
+<p>alternative syntax with options:</p>
+
+<pre class="ruby"><span class="ruby-constant">CodeRay</span><span class="ruby-operator">::</span><span class="ruby-constant">Duo</span>[{ :<span class="ruby-identifier">ruby</span> =<span class="ruby-operator">&gt;</span> :<span class="ruby-identifier">statistic</span> }, :<span class="ruby-keyword">do</span> =<span class="ruby-operator">&gt;</span> :<span class="ruby-identifier">something</span>].<span class="ruby-identifier">encode</span> <span class="ruby-string">'abc'</span>
+</pre>
+
+<p>The options are forwarded to scanner and encoder (see <a
+href="../CodeRay.html#method-c-get_scanner_options">CodeRay.get_scanner_options</a>).</p>
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File lib/coderay/duo.rb, line 37</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span> <span class="ruby-identifier">lang</span> = <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">format</span> = <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">options</span> = {}
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">format</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">lang</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Hash</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">lang</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">==</span> <span class="ruby-value">1</span>
+    <span class="ruby-ivar">@lang</span> = <span class="ruby-identifier">lang</span>.<span class="ruby-identifier">keys</span>.<span class="ruby-identifier">first</span>
+    <span class="ruby-ivar">@format</span> = <span class="ruby-identifier">lang</span>[<span class="ruby-ivar">@lang</span>]
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-ivar">@lang</span> = <span class="ruby-identifier">lang</span>
+    <span class="ruby-ivar">@format</span> = <span class="ruby-identifier">format</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-ivar">@options</span> = <span class="ruby-identifier">options</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- new-source -->
+          
+        </div>
+
+        
+        <div class="aliases">
+          Also aliased as: <a href="Duo.html#method-c-5B-5D">[]</a>
+        </div>
+        
+
+        
+      </div><!-- new-method -->
+
+    
+    </section><!-- public-class-method-details -->
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Public Instance Methods</h3>
+
+    
+      <div id="method-i-call" class="method-detail method-alias">
+        
+        <div class="method-heading">
+          <span class="method-name">call</span><span
+            class="method-args">(code, options = {})</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Allows to use <a href="Duo.html">Duo</a> like a proc object:</p>
+
+<pre class="ruby"><span class="ruby-constant">CodeRay</span><span class="ruby-operator">::</span><span class="ruby-constant">Duo</span>[:<span class="ruby-identifier">python</span> =<span class="ruby-operator">&gt;</span> :<span class="ruby-identifier">yaml</span>].<span class="ruby-identifier">call</span>(<span class="ruby-identifier">code</span>)
+</pre>
+
+<p>or, in Ruby 1.9 and later:</p>
+
+<pre class="ruby"><span class="ruby-constant">CodeRay</span><span class="ruby-operator">::</span><span class="ruby-constant">Duo</span>[:<span class="ruby-identifier">python</span> =<span class="ruby-operator">&gt;</span> :<span class="ruby-identifier">yaml</span>].(<span class="ruby-identifier">code</span>)
+</pre>
+          
+
+          
+        </div>
+
+        
+
+        
+        <div class="aliases">
+          Alias for: <a href="Duo.html#method-i-encode">encode</a>
+        </div>
+        
+      </div><!-- call-method -->
+
+    
+      <div id="method-i-encode" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">encode</span><span
+            class="method-args">(code, options = {})</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Tokenize and highlight the code using <code>scanner</code> and
+<code>encoder</code>.</p>
+          
+
+          
+          <div class="method-source-code" id="encode-source">
+            <pre><span class="ruby-comment"># File lib/coderay/duo.rb, line 64</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">encode</span> <span class="ruby-identifier">code</span>, <span class="ruby-identifier">options</span> = {}
+  <span class="ruby-identifier">options</span> = <span class="ruby-ivar">@options</span>.<span class="ruby-identifier">merge</span> <span class="ruby-identifier">options</span>
+  <span class="ruby-identifier">encoder</span>.<span class="ruby-identifier">encode</span>(<span class="ruby-identifier">code</span>, <span class="ruby-ivar">@lang</span>, <span class="ruby-identifier">options</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- encode-source -->
+          
+        </div>
+
+        
+        <div class="aliases">
+          Also aliased as: <a href="Duo.html#method-i-highlight">highlight</a>, <a href="Duo.html#method-i-call">call</a>
+        </div>
+        
+
+        
+      </div><!-- encode-method -->
+
+    
+      <div id="method-i-encoder" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">encoder</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>The encoder of the duo. Only created once.</p>
+          
+
+          
+          <div class="method-source-code" id="encoder-source">
+            <pre><span class="ruby-comment"># File lib/coderay/duo.rb, line 59</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">encoder</span>
+  <span class="ruby-ivar">@encoder</span> <span class="ruby-operator">||=</span> <span class="ruby-constant">CodeRay</span>.<span class="ruby-identifier">encoder</span> <span class="ruby-ivar">@format</span>, <span class="ruby-ivar">@options</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- encoder-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- encoder-method -->
+
+    
+      <div id="method-i-highlight" class="method-detail method-alias">
+        
+        <div class="method-heading">
+          <span class="method-name">highlight</span><span
+            class="method-args">(code, options = {})</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+        </div>
+
+        
+
+        
+        <div class="aliases">
+          Alias for: <a href="Duo.html#method-i-encode">encode</a>
+        </div>
+        
+      </div><!-- highlight-method -->
+
+    
+      <div id="method-i-scanner" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">scanner</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>The scanner of the duo. Only created once.</p>
+          
+
+          
+          <div class="method-source-code" id="scanner-source">
+            <pre><span class="ruby-comment"># File lib/coderay/duo.rb, line 54</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">scanner</span>
+  <span class="ruby-ivar">@scanner</span> <span class="ruby-operator">||=</span> <span class="ruby-constant">CodeRay</span>.<span class="ruby-identifier">scanner</span> <span class="ruby-ivar">@lang</span>, <span class="ruby-constant">CodeRay</span>.<span class="ruby-identifier">get_scanner_options</span>(<span class="ruby-ivar">@options</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- scanner-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- scanner-method -->
+
+    
+    </section><!-- public-instance-method-details -->
+  
+  </section><!-- 5Buntitled-5D -->
+
+</div><!-- documentation -->
+
+
+<footer id="validator-badges">
+  <p><a href="http://validator.w3.org/check/referer">[Validate]</a>
+  <p>Generated by <a href="https://github.com/rdoc/rdoc">RDoc</a> 3.12.
+  <p>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish Rdoc Generator</a> 3.
+</footer>
+

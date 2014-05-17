@@ -1,0 +1,16 @@
+.ray
+  %h1= @ray.name
+  %h3
+    = @ray.language.name.capitalize
+    code posted
+    - if @ray.author.present?
+      by
+      = @ray.author
+    %br
+    created at #{ @ray.created_at.to_s(:short) rescue 'unknown' }#{", updated at #{ @ray.updated_at.to_s(:short) rescue 'unknown' }" if @ray.ever_updated?}
+  
+  = link_to 'Edit', edit_ray_path(@ray)
+  |
+  = link_to 'Back', rays_path
+  
+  ~ highlight_ray @ray

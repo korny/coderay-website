@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+
+<title>module CodeRay::FileType - CodeRay Documentation</title>
+
+<link type="text/css" media="screen" href="../rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+</script>
+
+<script type="text/javascript" charset="utf-8" src="../js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/navigation.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/search_index.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/search.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/searcher.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/darkfish.js"></script>
+
+
+<body id="top" class="module">
+<nav id="metadata">
+  <nav id="home-section" class="section">
+  <h3 class="section-header">
+    <a href="../index.html">Home</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </h3>
+</nav>
+
+
+  <nav id="search-section" class="section project-section" class="initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <h3 class="section-header">
+      <input type="text" name="search" placeholder="Search" id="search-field"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </h3>
+  </form>
+
+  <ul id="search-results" class="initially-hidden"></ul>
+</nav>
+
+
+  <div id="file-metadata">
+    <nav id="file-list-section" class="section">
+  <h3 class="section-header">Defined In</h3>
+  <ul>
+    <li>lib/coderay/helpers/file_type.rb
+  </ul>
+</nav>
+
+    
+  </div>
+
+  <div id="class-metadata">
+    
+    
+    
+    <!-- Method Quickref -->
+<nav id="method-list-section" class="section">
+  <h3 class="section-header">Methods</h3>
+
+  <ul class="link-list">
+    
+    <li><a href="#method-c-5B-5D">::[]</a>
+    
+    <li><a href="#method-c-fetch">::fetch</a>
+    
+    <li><a href="#method-c-shebang">::shebang</a>
+    
+  </ul>
+</nav>
+
+  </div>
+
+  <div id="project-metadata">
+    <nav id="fileindex-section" class="section project-section">
+  <h3 class="section-header">Pages</h3>
+
+  <ul>
+  
+    <li class="file"><a href="../README_INDEX_rdoc.html">README_INDEX</a>
+  
+  </ul>
+</nav>
+
+    <nav id="classindex-section" class="section project-section">
+  <h3 class="section-header">Class and Module Index</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="../CodeRay.html">CodeRay</a>
+  
+    <li><a href="../CodeRay/Duo.html">CodeRay::Duo</a>
+  
+    <li><a href="../CodeRay/Encoders.html">CodeRay::Encoders</a>
+  
+    <li><a href="../CodeRay/Encoders/CommentFilter.html">CodeRay::Encoders::CommentFilter</a>
+  
+    <li><a href="../CodeRay/Encoders/Count.html">CodeRay::Encoders::Count</a>
+  
+    <li><a href="../CodeRay/Encoders/Debug.html">CodeRay::Encoders::Debug</a>
+  
+    <li><a href="../CodeRay/Encoders/Div.html">CodeRay::Encoders::Div</a>
+  
+    <li><a href="../CodeRay/Encoders/Encoder.html">CodeRay::Encoders::Encoder</a>
+  
+    <li><a href="../CodeRay/Encoders/Filter.html">CodeRay::Encoders::Filter</a>
+  
+    <li><a href="../CodeRay/Encoders/HTML.html">CodeRay::Encoders::HTML</a>
+  
+    <li><a href="../CodeRay/Encoders/HTML/Output.html">CodeRay::Encoders::HTML::Output</a>
+  
+    <li><a href="../CodeRay/Encoders/JSON.html">CodeRay::Encoders::JSON</a>
+  
+    <li><a href="../CodeRay/Encoders/LinesOfCode.html">CodeRay::Encoders::LinesOfCode</a>
+  
+    <li><a href="../CodeRay/Encoders/Null.html">CodeRay::Encoders::Null</a>
+  
+    <li><a href="../CodeRay/Encoders/Page.html">CodeRay::Encoders::Page</a>
+  
+    <li><a href="../CodeRay/Encoders/Span.html">CodeRay::Encoders::Span</a>
+  
+    <li><a href="../CodeRay/Encoders/Statistic.html">CodeRay::Encoders::Statistic</a>
+  
+    <li><a href="../CodeRay/Encoders/Terminal.html">CodeRay::Encoders::Terminal</a>
+  
+    <li><a href="../CodeRay/Encoders/Text.html">CodeRay::Encoders::Text</a>
+  
+    <li><a href="../CodeRay/Encoders/TokenKindFilter.html">CodeRay::Encoders::TokenKindFilter</a>
+  
+    <li><a href="../CodeRay/Encoders/XML.html">CodeRay::Encoders::XML</a>
+  
+    <li><a href="../CodeRay/Encoders/YAML.html">CodeRay::Encoders::YAML</a>
+  
+    <li><a href="../CodeRay/FileType.html">CodeRay::FileType</a>
+  
+    <li><a href="../CodeRay/ForRedCloth.html">CodeRay::ForRedCloth</a>
+  
+    <li><a href="../CodeRay/GZip.html">CodeRay::GZip</a>
+  
+    <li><a href="../CodeRay/Plugin.html">CodeRay::Plugin</a>
+  
+    <li><a href="../CodeRay/PluginHost.html">CodeRay::PluginHost</a>
+  
+    <li><a href="../CodeRay/Scanners.html">CodeRay::Scanners</a>
+  
+    <li><a href="../CodeRay/Scanners/C.html">CodeRay::Scanners::C</a>
+  
+    <li><a href="../CodeRay/Scanners/CPlusPlus.html">CodeRay::Scanners::CPlusPlus</a>
+  
+    <li><a href="../CodeRay/Scanners/CSS.html">CodeRay::Scanners::CSS</a>
+  
+    <li><a href="../CodeRay/Scanners/Clojure.html">CodeRay::Scanners::Clojure</a>
+  
+    <li><a href="../CodeRay/Scanners/Debug.html">CodeRay::Scanners::Debug</a>
+  
+    <li><a href="../CodeRay/Scanners/Delphi.html">CodeRay::Scanners::Delphi</a>
+  
+    <li><a href="../CodeRay/Scanners/Diff.html">CodeRay::Scanners::Diff</a>
+  
+    <li><a href="../CodeRay/Scanners/ERB.html">CodeRay::Scanners::ERB</a>
+  
+    <li><a href="../CodeRay/Scanners/Groovy.html">CodeRay::Scanners::Groovy</a>
+  
+    <li><a href="../CodeRay/Scanners/HAML.html">CodeRay::Scanners::HAML</a>
+  
+    <li><a href="../CodeRay/Scanners/HTML.html">CodeRay::Scanners::HTML</a>
+  
+    <li><a href="../CodeRay/Scanners/JSON.html">CodeRay::Scanners::JSON</a>
+  
+    <li><a href="../CodeRay/Scanners/Java.html">CodeRay::Scanners::Java</a>
+  
+    <li><a href="../CodeRay/Scanners/JavaScript.html">CodeRay::Scanners::JavaScript</a>
+  
+    <li><a href="../CodeRay/Scanners/PHP.html">CodeRay::Scanners::PHP</a>
+  
+    <li><a href="../CodeRay/Scanners/Python.html">CodeRay::Scanners::Python</a>
+  
+    <li><a href="../CodeRay/Scanners/Raydebug.html">CodeRay::Scanners::Raydebug</a>
+  
+    <li><a href="../CodeRay/Scanners/Ruby.html">CodeRay::Scanners::Ruby</a>
+  
+    <li><a href="../CodeRay/Scanners/SQL.html">CodeRay::Scanners::SQL</a>
+  
+    <li><a href="../CodeRay/Scanners/Scanner.html">CodeRay::Scanners::Scanner</a>
+  
+    <li><a href="../CodeRay/Scanners/Text.html">CodeRay::Scanners::Text</a>
+  
+    <li><a href="../CodeRay/Scanners/XML.html">CodeRay::Scanners::XML</a>
+  
+    <li><a href="../CodeRay/Scanners/YAML.html">CodeRay::Scanners::YAML</a>
+  
+    <li><a href="../CodeRay/Styles.html">CodeRay::Styles</a>
+  
+    <li><a href="../CodeRay/Styles/Alpha.html">CodeRay::Styles::Alpha</a>
+  
+    <li><a href="../CodeRay/Styles/Style.html">CodeRay::Styles::Style</a>
+  
+    <li><a href="../CodeRay/Tokens.html">CodeRay::Tokens</a>
+  
+    <li><a href="../CodeRay/Tokens/Undumping.html">CodeRay::Tokens::Undumping</a>
+  
+    <li><a href="../CodeRay/TokensProxy.html">CodeRay::TokensProxy</a>
+  
+    <li><a href="../CodeRay/WordList.html">CodeRay::WordList</a>
+  
+    <li><a href="../CodeRay/WordList/CaseIgnoring.html">CodeRay::WordList::CaseIgnoring</a>
+  
+  </ul>
+</nav>
+
+  </div>
+</nav>
+
+<div id="documentation">
+  <h1 class="module">module CodeRay::FileType</h1>
+
+  <div id="description" class="description">
+    
+<h1 id="label-FileType"><a href="FileType.html">FileType</a></h1>
+
+<p>A simple filetype recognizer.</p>
+
+<h2 id="label-Usage">Usage</h2>
+
+<pre># determine the type of the given
+lang = FileType[file_name]
+
+# return :text if the file type is unknown
+lang = FileType.fetch file_name, :text
+
+# try the shebang line, too
+lang = FileType.fetch file_name, :text, true</pre>
+
+  </div><!-- description -->
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+    <!-- Constants -->
+    <section id="constants-list" class="section">
+      <h3 class="section-header">Constants</h3>
+      <dl>
+      
+        <dt id="TypeFromExt">TypeFromExt
+        
+        <dd class="description">
+        
+      
+        <dt id="TypeFromName">TypeFromName
+        
+        <dd class="description">
+        
+      
+        <dt id="TypeFromShebang">TypeFromShebang
+        
+        <dd class="description">
+        
+      
+        <dt id="UnknownFileType">UnknownFileType
+        
+        <dd class="description">
+        
+      
+      </dl>
+    </section>
+    
+
+    
+
+    <!-- Methods -->
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Public Class Methods</h3>
+
+    
+      <div id="method-c-5B-5D" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">[]</span><span
+            class="method-args">(filename, read_shebang = false)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Try to determine the file type of the file.</p>
+
+<p><code>filename</code> is a relative or absolute path to a file.</p>
+
+<p>The file itself is only accessed when <code>read_shebang</code> is set to
+true. That means you can get filetypes from files that don’t exist.</p>
+          
+
+          
+          <div class="method-source-code" id="5B-5D-source">
+            <pre><span class="ruby-comment"># File lib/coderay/helpers/file_type.rb, line 29</span>
+<span class="ruby-keyword">def</span> <span class="ruby-operator">[]</span> <span class="ruby-identifier">filename</span>, <span class="ruby-identifier">read_shebang</span> = <span class="ruby-keyword">false</span>
+  <span class="ruby-identifier">name</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">basename</span> <span class="ruby-identifier">filename</span>
+  <span class="ruby-identifier">ext</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">extname</span>(<span class="ruby-identifier">name</span>).<span class="ruby-identifier">sub</span>(<span class="ruby-regexp">%r^\./</span>, <span class="ruby-string">''</span>)  <span class="ruby-comment"># from last dot, delete the leading dot</span>
+  <span class="ruby-identifier">ext2</span> = <span class="ruby-identifier">filename</span>.<span class="ruby-identifier">to_s</span>[<span class="ruby-regexp">%r\.(.*)/</span>, <span class="ruby-value">1</span>]  <span class="ruby-comment"># from first dot</span>
+  
+  <span class="ruby-identifier">type</span> =
+    <span class="ruby-constant">TypeFromExt</span>[<span class="ruby-identifier">ext</span>] <span class="ruby-operator">||</span>
+    <span class="ruby-constant">TypeFromExt</span>[<span class="ruby-identifier">ext</span>.<span class="ruby-identifier">downcase</span>] <span class="ruby-operator">||</span>
+    (<span class="ruby-constant">TypeFromExt</span>[<span class="ruby-identifier">ext2</span>] <span class="ruby-keyword">if</span> <span class="ruby-identifier">ext2</span>) <span class="ruby-operator">||</span>
+    (<span class="ruby-constant">TypeFromExt</span>[<span class="ruby-identifier">ext2</span>.<span class="ruby-identifier">downcase</span>] <span class="ruby-keyword">if</span> <span class="ruby-identifier">ext2</span>) <span class="ruby-operator">||</span>
+    <span class="ruby-constant">TypeFromName</span>[<span class="ruby-identifier">name</span>] <span class="ruby-operator">||</span>
+    <span class="ruby-constant">TypeFromName</span>[<span class="ruby-identifier">name</span>.<span class="ruby-identifier">downcase</span>]
+  <span class="ruby-identifier">type</span> <span class="ruby-operator">||=</span> <span class="ruby-identifier">shebang</span>(<span class="ruby-identifier">filename</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">read_shebang</span>
+  
+  <span class="ruby-identifier">type</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- 5B-5D-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- 5B-5D-method -->
+
+    
+      <div id="method-c-fetch" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">fetch</span><span
+            class="method-args">(filename, default = nil, read_shebang = false) { || ... }</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>This works like Hash#fetch.</p>
+
+<p>If the filetype cannot be found, the <code>default</code> value is
+returned.</p>
+          
+
+          
+          <div class="method-source-code" id="fetch-source">
+            <pre><span class="ruby-comment"># File lib/coderay/helpers/file_type.rb, line 50</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">fetch</span> <span class="ruby-identifier">filename</span>, <span class="ruby-identifier">default</span> = <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">read_shebang</span> = <span class="ruby-keyword">false</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">default</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">block_given?</span>
+    <span class="ruby-identifier">warn</span> <span class="ruby-string">'Block supersedes default value argument; use either.'</span>
+  <span class="ruby-keyword">end</span>
+  
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">type</span> = <span class="ruby-keyword">self</span>[<span class="ruby-identifier">filename</span>, <span class="ruby-identifier">read_shebang</span>]
+    <span class="ruby-identifier">type</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-keyword">yield</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">block_given?</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-identifier">default</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">default</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">UnknownFileType</span>, <span class="ruby-string">'Could not determine type of %p.'</span> <span class="ruby-operator">%</span> <span class="ruby-identifier">filename</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- fetch-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- fetch-method -->
+
+    
+    </section><!-- public-class-method-details -->
+  
+     <section id="protected-class-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Protected Class Methods</h3>
+
+    
+      <div id="method-c-shebang" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">shebang</span><span
+            class="method-args">(filename)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="shebang-source">
+            <pre><span class="ruby-comment"># File lib/coderay/helpers/file_type.rb, line 66</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">shebang</span> <span class="ruby-identifier">filename</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">unless</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">exist?</span> <span class="ruby-identifier">filename</span>
+  <span class="ruby-constant">File</span>.<span class="ruby-identifier">open</span> <span class="ruby-identifier">filename</span>, <span class="ruby-string">'r'</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">f</span><span class="ruby-operator">|</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">first_line</span> = <span class="ruby-identifier">f</span>.<span class="ruby-identifier">gets</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">type</span> = <span class="ruby-identifier">first_line</span>[<span class="ruby-constant">TypeFromShebang</span>]
+        <span class="ruby-identifier">type</span>.<span class="ruby-identifier">to_sym</span>
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- shebang-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- shebang-method -->
+
+    
+    </section><!-- protected-class-method-details -->
+  
+  </section><!-- 5Buntitled-5D -->
+
+</div><!-- documentation -->
+
+
+<footer id="validator-badges">
+  <p><a href="http://validator.w3.org/check/referer">[Validate]</a>
+  <p>Generated by <a href="https://github.com/rdoc/rdoc">RDoc</a> 3.12.
+  <p>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish Rdoc Generator</a> 3.
+</footer>
+

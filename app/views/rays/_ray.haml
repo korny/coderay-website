@@ -1,0 +1,18 @@
+%tr.bar
+  %td.name= ray.name
+  %td.loc
+    = pluralize ray.line_count, 'line'
+    of
+    %b= ray.language.name
+    - if ray.author.present?
+      by
+      %b= ray.author
+  %td.size= number_to_human_size ray.code.size
+  %td.show= link_to 'Show', ray
+  %td.edit= link_to 'Edit', [:edit, ray]
+  %td.edit= link_to 'Expand', [:expand, ray], :remote => true
+
+%tr
+  %td.ray{ :colspan => 6 }
+    .ray{ :id => "ray_#{ray.id}" }
+      = render :partial => 'code', :object => ray, :locals => { :preview => 200 }

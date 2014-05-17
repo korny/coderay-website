@@ -1,0 +1,9 @@
+%h1 Editing ray
+
+= render 'form', :ray => @ray, :submit => 'Edit'
+
+= link_to 'Show', @ray
+|
+= link_to 'Delete', @ray, :method => :delete
+|
+= link_to 'Back', Ray

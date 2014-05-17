@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+
+<title>class CodeRay::Encoders::TokenKindFilter - CodeRay Documentation</title>
+
+<link type="text/css" media="screen" href="../../rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../";
+</script>
+
+<script type="text/javascript" charset="utf-8" src="../../js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../js/navigation.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../js/search_index.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../js/search.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../js/searcher.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../js/darkfish.js"></script>
+
+
+<body id="top" class="class">
+<nav id="metadata">
+  <nav id="home-section" class="section">
+  <h3 class="section-header">
+    <a href="../../index.html">Home</a>
+    <a href="../../table_of_contents.html#classes">Classes</a>
+    <a href="../../table_of_contents.html#methods">Methods</a>
+  </h3>
+</nav>
+
+
+  <nav id="search-section" class="section project-section" class="initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <h3 class="section-header">
+      <input type="text" name="search" placeholder="Search" id="search-field"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </h3>
+  </form>
+
+  <ul id="search-results" class="initially-hidden"></ul>
+</nav>
+
+
+  <div id="file-metadata">
+    <nav id="file-list-section" class="section">
+  <h3 class="section-header">Defined In</h3>
+  <ul>
+    <li>lib/coderay/encoders/token_kind_filter.rb
+  </ul>
+</nav>
+
+    
+  </div>
+
+  <div id="class-metadata">
+    
+    <nav id="parent-class-section" class="section">
+  <h3 class="section-header">Parent</h3>
+  
+  <p class="link"><a href="Filter.html">CodeRay::Encoders::Filter</a>
+  
+</nav>
+
+    
+    <!-- Method Quickref -->
+<nav id="method-list-section" class="section">
+  <h3 class="section-header">Methods</h3>
+
+  <ul class="link-list">
+    
+    <li><a href="#method-i-begin_group">#begin_group</a>
+    
+    <li><a href="#method-i-begin_line">#begin_line</a>
+    
+    <li><a href="#method-i-end_group">#end_group</a>
+    
+    <li><a href="#method-i-end_line">#end_line</a>
+    
+    <li><a href="#method-i-include_group-3F">#include_group?</a>
+    
+    <li><a href="#method-i-include_text_token-3F">#include_text_token?</a>
+    
+    <li><a href="#method-i-setup">#setup</a>
+    
+    <li><a href="#method-i-text_token">#text_token</a>
+    
+  </ul>
+</nav>
+
+  </div>
+
+  <div id="project-metadata">
+    <nav id="fileindex-section" class="section project-section">
+  <h3 class="section-header">Pages</h3>
+
+  <ul>
+  
+    <li class="file"><a href="../../README_INDEX_rdoc.html">README_INDEX</a>
+  
+  </ul>
+</nav>
+
+    <nav id="classindex-section" class="section project-section">
+  <h3 class="section-header">Class and Module Index</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="../../CodeRay.html">CodeRay</a>
+  
+    <li><a href="../../CodeRay/Duo.html">CodeRay::Duo</a>
+  
+    <li><a href="../../CodeRay/Encoders.html">CodeRay::Encoders</a>
+  
+    <li><a href="../../CodeRay/Encoders/CommentFilter.html">CodeRay::Encoders::CommentFilter</a>
+  
+    <li><a href="../../CodeRay/Encoders/Count.html">CodeRay::Encoders::Count</a>
+  
+    <li><a href="../../CodeRay/Encoders/Debug.html">CodeRay::Encoders::Debug</a>
+  
+    <li><a href="../../CodeRay/Encoders/Div.html">CodeRay::Encoders::Div</a>
+  
+    <li><a href="../../CodeRay/Encoders/Encoder.html">CodeRay::Encoders::Encoder</a>
+  
+    <li><a href="../../CodeRay/Encoders/Filter.html">CodeRay::Encoders::Filter</a>
+  
+    <li><a href="../../CodeRay/Encoders/HTML.html">CodeRay::Encoders::HTML</a>
+  
+    <li><a href="../../CodeRay/Encoders/HTML/Output.html">CodeRay::Encoders::HTML::Output</a>
+  
+    <li><a href="../../CodeRay/Encoders/JSON.html">CodeRay::Encoders::JSON</a>
+  
+    <li><a href="../../CodeRay/Encoders/LinesOfCode.html">CodeRay::Encoders::LinesOfCode</a>
+  
+    <li><a href="../../CodeRay/Encoders/Null.html">CodeRay::Encoders::Null</a>
+  
+    <li><a href="../../CodeRay/Encoders/Page.html">CodeRay::Encoders::Page</a>
+  
+    <li><a href="../../CodeRay/Encoders/Span.html">CodeRay::Encoders::Span</a>
+  
+    <li><a href="../../CodeRay/Encoders/Statistic.html">CodeRay::Encoders::Statistic</a>
+  
+    <li><a href="../../CodeRay/Encoders/Terminal.html">CodeRay::Encoders::Terminal</a>
+  
+    <li><a href="../../CodeRay/Encoders/Text.html">CodeRay::Encoders::Text</a>
+  
+    <li><a href="../../CodeRay/Encoders/TokenKindFilter.html">CodeRay::Encoders::TokenKindFilter</a>
+  
+    <li><a href="../../CodeRay/Encoders/XML.html">CodeRay::Encoders::XML</a>
+  
+    <li><a href="../../CodeRay/Encoders/YAML.html">CodeRay::Encoders::YAML</a>
+  
+    <li><a href="../../CodeRay/FileType.html">CodeRay::FileType</a>
+  
+    <li><a href="../../CodeRay/ForRedCloth.html">CodeRay::ForRedCloth</a>
+  
+    <li><a href="../../CodeRay/GZip.html">CodeRay::GZip</a>
+  
+    <li><a href="../../CodeRay/Plugin.html">CodeRay::Plugin</a>
+  
+    <li><a href="../../CodeRay/PluginHost.html">CodeRay::PluginHost</a>
+  
+    <li><a href="../../CodeRay/Scanners.html">CodeRay::Scanners</a>
+  
+    <li><a href="../../CodeRay/Scanners/C.html">CodeRay::Scanners::C</a>
+  
+    <li><a href="../../CodeRay/Scanners/CPlusPlus.html">CodeRay::Scanners::CPlusPlus</a>
+  
+    <li><a href="../../CodeRay/Scanners/CSS.html">CodeRay::Scanners::CSS</a>
+  
+    <li><a href="../../CodeRay/Scanners/Clojure.html">CodeRay::Scanners::Clojure</a>
+  
+    <li><a href="../../CodeRay/Scanners/Debug.html">CodeRay::Scanners::Debug</a>
+  
+    <li><a href="../../CodeRay/Scanners/Delphi.html">CodeRay::Scanners::Delphi</a>
+  
+    <li><a href="../../CodeRay/Scanners/Diff.html">CodeRay::Scanners::Diff</a>
+  
+    <li><a href="../../CodeRay/Scanners/ERB.html">CodeRay::Scanners::ERB</a>
+  
+    <li><a href="../../CodeRay/Scanners/Groovy.html">CodeRay::Scanners::Groovy</a>
+  
+    <li><a href="../../CodeRay/Scanners/HAML.html">CodeRay::Scanners::HAML</a>
+  
+    <li><a href="../../CodeRay/Scanners/HTML.html">CodeRay::Scanners::HTML</a>
+  
+    <li><a href="../../CodeRay/Scanners/JSON.html">CodeRay::Scanners::JSON</a>
+  
+    <li><a href="../../CodeRay/Scanners/Java.html">CodeRay::Scanners::Java</a>
+  
+    <li><a href="../../CodeRay/Scanners/JavaScript.html">CodeRay::Scanners::JavaScript</a>
+  
+    <li><a href="../../CodeRay/Scanners/PHP.html">CodeRay::Scanners::PHP</a>
+  
+    <li><a href="../../CodeRay/Scanners/Python.html">CodeRay::Scanners::Python</a>
+  
+    <li><a href="../../CodeRay/Scanners/Raydebug.html">CodeRay::Scanners::Raydebug</a>
+  
+    <li><a href="../../CodeRay/Scanners/Ruby.html">CodeRay::Scanners::Ruby</a>
+  
+    <li><a href="../../CodeRay/Scanners/SQL.html">CodeRay::Scanners::SQL</a>
+  
+    <li><a href="../../CodeRay/Scanners/Scanner.html">CodeRay::Scanners::Scanner</a>
+  
+    <li><a href="../../CodeRay/Scanners/Text.html">CodeRay::Scanners::Text</a>
+  
+    <li><a href="../../CodeRay/Scanners/XML.html">CodeRay::Scanners::XML</a>
+  
+    <li><a href="../../CodeRay/Scanners/YAML.html">CodeRay::Scanners::YAML</a>
+  
+    <li><a href="../../CodeRay/Styles.html">CodeRay::Styles</a>
+  
+    <li><a href="../../CodeRay/Styles/Alpha.html">CodeRay::Styles::Alpha</a>
+  
+    <li><a href="../../CodeRay/Styles/Style.html">CodeRay::Styles::Style</a>
+  
+    <li><a href="../../CodeRay/Tokens.html">CodeRay::Tokens</a>
+  
+    <li><a href="../../CodeRay/Tokens/Undumping.html">CodeRay::Tokens::Undumping</a>
+  
+    <li><a href="../../CodeRay/TokensProxy.html">CodeRay::TokensProxy</a>
+  
+    <li><a href="../../CodeRay/WordList.html">CodeRay::WordList</a>
+  
+    <li><a href="../../CodeRay/WordList/CaseIgnoring.html">CodeRay::WordList::CaseIgnoring</a>
+  
+  </ul>
+</nav>
+
+  </div>
+</nav>
+
+<div id="documentation">
+  <h1 class="class">class CodeRay::Encoders::TokenKindFilter</h1>
+
+  <div id="description" class="description">
+    
+<p>A <a href="Filter.html">Filter</a> that selects tokens based on their token
+kind.</p>
+
+<h2 id="label-Options">Options</h2>
+
+<h3 id="label-%3Aexclude">:exclude</h3>
+
+<p>One or many symbols (in an Array) which shall be excluded.</p>
+
+<p>Default: []</p>
+
+<h3 id="label-%3Ainclude">:include</h3>
+
+<p>One or many symbols (in an array) which shall be included.</p>
+
+<p>Default: :all, which means all tokens are included.</p>
+
+<p>Exclusion wins over inclusion.</p>
+
+<p>See also: <a href="CommentFilter.html">CommentFilter</a></p>
+
+  </div><!-- description -->
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+    <!-- Constants -->
+    <section id="constants-list" class="section">
+      <h3 class="section-header">Constants</h3>
+      <dl>
+      
+        <dt id="DEFAULT_OPTIONS">DEFAULT_OPTIONS
+        
+        <dd class="description">
+        
+      
+      </dl>
+    </section>
+    
+
+    
+
+    <!-- Methods -->
+    
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Public Instance Methods</h3>
+
+    
+      <div id="method-i-begin_group" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">begin_group</span><span
+            class="method-args">(kind)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Add the token group to the output stream if <code>kind</code> matches the
+conditions.</p>
+
+<p>If it does not, all tokens inside the group are excluded from the stream,
+even if their kinds match.</p>
+          
+
+          
+          <div class="method-source-code" id="begin_group-source">
+            <pre><span class="ruby-comment"># File lib/coderay/encoders/token_kind_filter.rb, line 66</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">begin_group</span> <span class="ruby-identifier">kind</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@group_excluded</span>
+    <span class="ruby-ivar">@group_excluded</span> <span class="ruby-operator">+=</span> <span class="ruby-value">1</span>
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">include_group?</span> <span class="ruby-identifier">kind</span>
+    <span class="ruby-keyword">super</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-ivar">@group_excluded</span> = <span class="ruby-value">1</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- begin_group-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- begin_group-method -->
+
+    
+      <div id="method-i-begin_line" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">begin_line</span><span
+            class="method-args">(kind)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>See <code>begin_group</code>.</p>
+          
+
+          
+          <div class="method-source-code" id="begin_line-source">
+            <pre><span class="ruby-comment"># File lib/coderay/encoders/token_kind_filter.rb, line 77</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">begin_line</span> <span class="ruby-identifier">kind</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@group_excluded</span>
+    <span class="ruby-ivar">@group_excluded</span> <span class="ruby-operator">+=</span> <span class="ruby-value">1</span>
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">include_group?</span> <span class="ruby-identifier">kind</span>
+    <span class="ruby-keyword">super</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-ivar">@group_excluded</span> = <span class="ruby-value">1</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- begin_line-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- begin_line-method -->
+
+    
+      <div id="method-i-end_group" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">end_group</span><span
+            class="method-args">(kind)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Take care of re-enabling the delegation of tokens to the output stream if
+an exluded group has ended.</p>
+          
+
+          
+          <div class="method-source-code" id="end_group-source">
+            <pre><span class="ruby-comment"># File lib/coderay/encoders/token_kind_filter.rb, line 89</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">end_group</span> <span class="ruby-identifier">kind</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@group_excluded</span>
+    <span class="ruby-ivar">@group_excluded</span> <span class="ruby-operator">-=</span> <span class="ruby-value">1</span>
+    <span class="ruby-ivar">@group_excluded</span> = <span class="ruby-keyword">false</span> <span class="ruby-keyword">if</span> <span class="ruby-ivar">@group_excluded</span>.<span class="ruby-identifier">zero?</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-keyword">super</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- end_group-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- end_group-method -->
+
+    
+      <div id="method-i-end_line" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">end_line</span><span
+            class="method-args">(kind)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>See <code>end_group</code>.</p>
+          
+
+          
+          <div class="method-source-code" id="end_line-source">
+            <pre><span class="ruby-comment"># File lib/coderay/encoders/token_kind_filter.rb, line 99</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">end_line</span> <span class="ruby-identifier">kind</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@group_excluded</span>
+    <span class="ruby-ivar">@group_excluded</span> <span class="ruby-operator">-=</span> <span class="ruby-value">1</span>
+    <span class="ruby-ivar">@group_excluded</span> = <span class="ruby-keyword">false</span> <span class="ruby-keyword">if</span> <span class="ruby-ivar">@group_excluded</span>.<span class="ruby-identifier">zero?</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-keyword">super</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- end_line-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- end_line-method -->
+
+    
+      <div id="method-i-text_token" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">text_token</span><span
+            class="method-args">(text, kind)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Add the token to the output stream if <code>kind</code> matches the
+conditions.</p>
+          
+
+          
+          <div class="method-source-code" id="text_token-source">
+            <pre><span class="ruby-comment"># File lib/coderay/encoders/token_kind_filter.rb, line 57</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">text_token</span> <span class="ruby-identifier">text</span>, <span class="ruby-identifier">kind</span>
+  <span class="ruby-keyword">super</span> <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-ivar">@group_excluded</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">include_text_token?</span>(<span class="ruby-identifier">text</span>, <span class="ruby-identifier">kind</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- text_token-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- text_token-method -->
+
+    
+    </section><!-- public-instance-method-details -->
+  
+     <section id="protected-instance-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Protected Instance Methods</h3>
+
+    
+      <div id="method-i-include_group-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">include_group?</span><span
+            class="method-args">(kind)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="include_group-3F-source">
+            <pre><span class="ruby-comment"># File lib/coderay/encoders/token_kind_filter.rb, line 49</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">include_group?</span> <span class="ruby-identifier">kind</span>
+   (<span class="ruby-ivar">@include</span> <span class="ruby-operator">==</span> <span class="ruby-value">:all</span> <span class="ruby-operator">||</span> <span class="ruby-ivar">@include</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">kind</span>)) <span class="ruby-operator">&amp;&amp;</span>
+  <span class="ruby-operator">!</span>(<span class="ruby-ivar">@exclude</span> <span class="ruby-operator">==</span> <span class="ruby-value">:all</span> <span class="ruby-operator">||</span> <span class="ruby-ivar">@exclude</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">kind</span>))
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- include_group-3F-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- include_group-3F-method -->
+
+    
+      <div id="method-i-include_text_token-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">include_text_token?</span><span
+            class="method-args">(text, kind)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="include_text_token-3F-source">
+            <pre><span class="ruby-comment"># File lib/coderay/encoders/token_kind_filter.rb, line 45</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">include_text_token?</span> <span class="ruby-identifier">text</span>, <span class="ruby-identifier">kind</span>
+  <span class="ruby-identifier">include_group?</span> <span class="ruby-identifier">kind</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- include_text_token-3F-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- include_text_token-3F-method -->
+
+    
+      <div id="method-i-setup" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">setup</span><span
+            class="method-args">(options)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="setup-source">
+            <pre><span class="ruby-comment"># File lib/coderay/encoders/token_kind_filter.rb, line 35</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">setup</span> <span class="ruby-identifier">options</span>
+  <span class="ruby-keyword">super</span>
+  
+  <span class="ruby-ivar">@group_excluded</span> = <span class="ruby-keyword">false</span>
+  <span class="ruby-ivar">@exclude</span> = <span class="ruby-identifier">options</span>[<span class="ruby-value">:exclude</span>]
+  <span class="ruby-ivar">@exclude</span> = <span class="ruby-constant">Array</span>(<span class="ruby-ivar">@exclude</span>) <span class="ruby-keyword">unless</span> <span class="ruby-ivar">@exclude</span> <span class="ruby-operator">==</span> <span class="ruby-value">:all</span>
+  <span class="ruby-ivar">@include</span> = <span class="ruby-identifier">options</span>[<span class="ruby-value">:include</span>]
+  <span class="ruby-ivar">@include</span> = <span class="ruby-constant">Array</span>(<span class="ruby-ivar">@include</span>) <span class="ruby-keyword">unless</span> <span class="ruby-ivar">@include</span> <span class="ruby-operator">==</span> <span class="ruby-value">:all</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- setup-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- setup-method -->
+
+    
+    </section><!-- protected-instance-method-details -->
+  
+  </section><!-- 5Buntitled-5D -->
+
+</div><!-- documentation -->
+
+
+<footer id="validator-badges">
+  <p><a href="http://validator.w3.org/check/referer">[Validate]</a>
+  <p>Generated by <a href="https://github.com/rdoc/rdoc">RDoc</a> 3.12.
+  <p>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish Rdoc Generator</a> 3.
+</footer>
+

@@ -1,0 +1,22 @@
+%h3 Welcome! This page is using CodeRay #{CodeRay::VERSION}#{' (beta)' if CodeRay::VERSION[/\.0\z/]}.
+
+%p
+  We currently have
+  %strong= pluralize Ray.count, 'ray'
+  in the database.
+  %br
+  You can add a 
+  = link_to 'New Ray', new_ray_path, :class => 'new-ray'
+  or browse the posted rays by pages.
+
+- content_for :nav_links do
+  %p
+    = will_paginate
+    %span #{"Page #{@rays.current_page}, " if @rays.total_pages > 1}#{pluralize @rays.size, 'entry'}
+
+.top= yield :nav_links
+
+%table.ray-list
+  = render :partial => 'ray', :collection => @rays, :locals => { :preview => 200 }
+
+.bottom= yield :nav_links

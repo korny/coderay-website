@@ -1,0 +1,947 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+
+<title>module CodeRay::PluginHost - CodeRay Documentation</title>
+
+<link type="text/css" media="screen" href="../rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+</script>
+
+<script type="text/javascript" charset="utf-8" src="../js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/navigation.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/search_index.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/search.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/searcher.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/darkfish.js"></script>
+
+
+<body id="top" class="module">
+<nav id="metadata">
+  <nav id="home-section" class="section">
+  <h3 class="section-header">
+    <a href="../index.html">Home</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </h3>
+</nav>
+
+
+  <nav id="search-section" class="section project-section" class="initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <h3 class="section-header">
+      <input type="text" name="search" placeholder="Search" id="search-field"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </h3>
+  </form>
+
+  <ul id="search-results" class="initially-hidden"></ul>
+</nav>
+
+
+  <div id="file-metadata">
+    <nav id="file-list-section" class="section">
+  <h3 class="section-header">Defined In</h3>
+  <ul>
+    <li>lib/coderay/helpers/plugin.rb
+  </ul>
+</nav>
+
+    
+  </div>
+
+  <div id="class-metadata">
+    
+    
+    
+    <!-- Method Quickref -->
+<nav id="method-list-section" class="section">
+  <h3 class="section-header">Methods</h3>
+
+  <ul class="link-list">
+    
+    <li><a href="#method-c-extended">::extended</a>
+    
+    <li><a href="#method-i-5B-5D">#[]</a>
+    
+    <li><a href="#method-i-all_plugins">#all_plugins</a>
+    
+    <li><a href="#method-i-const_missing">#const_missing</a>
+    
+    <li><a href="#method-i-default">#default</a>
+    
+    <li><a href="#method-i-list">#list</a>
+    
+    <li><a href="#method-i-load">#load</a>
+    
+    <li><a href="#method-i-load_all">#load_all</a>
+    
+    <li><a href="#method-i-load_plugin_map">#load_plugin_map</a>
+    
+    <li><a href="#method-i-make_plugin_hash">#make_plugin_hash</a>
+    
+    <li><a href="#method-i-map">#map</a>
+    
+    <li><a href="#method-i-path_to">#path_to</a>
+    
+    <li><a href="#method-i-plugin_hash">#plugin_hash</a>
+    
+    <li><a href="#method-i-plugin_path">#plugin_path</a>
+    
+    <li><a href="#method-i-register">#register</a>
+    
+    <li><a href="#method-i-validate_id">#validate_id</a>
+    
+  </ul>
+</nav>
+
+  </div>
+
+  <div id="project-metadata">
+    <nav id="fileindex-section" class="section project-section">
+  <h3 class="section-header">Pages</h3>
+
+  <ul>
+  
+    <li class="file"><a href="../README_INDEX_rdoc.html">README_INDEX</a>
+  
+  </ul>
+</nav>
+
+    <nav id="classindex-section" class="section project-section">
+  <h3 class="section-header">Class and Module Index</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="../CodeRay.html">CodeRay</a>
+  
+    <li><a href="../CodeRay/Duo.html">CodeRay::Duo</a>
+  
+    <li><a href="../CodeRay/Encoders.html">CodeRay::Encoders</a>
+  
+    <li><a href="../CodeRay/Encoders/CommentFilter.html">CodeRay::Encoders::CommentFilter</a>
+  
+    <li><a href="../CodeRay/Encoders/Count.html">CodeRay::Encoders::Count</a>
+  
+    <li><a href="../CodeRay/Encoders/Debug.html">CodeRay::Encoders::Debug</a>
+  
+    <li><a href="../CodeRay/Encoders/Div.html">CodeRay::Encoders::Div</a>
+  
+    <li><a href="../CodeRay/Encoders/Encoder.html">CodeRay::Encoders::Encoder</a>
+  
+    <li><a href="../CodeRay/Encoders/Filter.html">CodeRay::Encoders::Filter</a>
+  
+    <li><a href="../CodeRay/Encoders/HTML.html">CodeRay::Encoders::HTML</a>
+  
+    <li><a href="../CodeRay/Encoders/HTML/Output.html">CodeRay::Encoders::HTML::Output</a>
+  
+    <li><a href="../CodeRay/Encoders/JSON.html">CodeRay::Encoders::JSON</a>
+  
+    <li><a href="../CodeRay/Encoders/LinesOfCode.html">CodeRay::Encoders::LinesOfCode</a>
+  
+    <li><a href="../CodeRay/Encoders/Null.html">CodeRay::Encoders::Null</a>
+  
+    <li><a href="../CodeRay/Encoders/Page.html">CodeRay::Encoders::Page</a>
+  
+    <li><a href="../CodeRay/Encoders/Span.html">CodeRay::Encoders::Span</a>
+  
+    <li><a href="../CodeRay/Encoders/Statistic.html">CodeRay::Encoders::Statistic</a>
+  
+    <li><a href="../CodeRay/Encoders/Terminal.html">CodeRay::Encoders::Terminal</a>
+  
+    <li><a href="../CodeRay/Encoders/Text.html">CodeRay::Encoders::Text</a>
+  
+    <li><a href="../CodeRay/Encoders/TokenKindFilter.html">CodeRay::Encoders::TokenKindFilter</a>
+  
+    <li><a href="../CodeRay/Encoders/XML.html">CodeRay::Encoders::XML</a>
+  
+    <li><a href="../CodeRay/Encoders/YAML.html">CodeRay::Encoders::YAML</a>
+  
+    <li><a href="../CodeRay/FileType.html">CodeRay::FileType</a>
+  
+    <li><a href="../CodeRay/ForRedCloth.html">CodeRay::ForRedCloth</a>
+  
+    <li><a href="../CodeRay/GZip.html">CodeRay::GZip</a>
+  
+    <li><a href="../CodeRay/Plugin.html">CodeRay::Plugin</a>
+  
+    <li><a href="../CodeRay/PluginHost.html">CodeRay::PluginHost</a>
+  
+    <li><a href="../CodeRay/Scanners.html">CodeRay::Scanners</a>
+  
+    <li><a href="../CodeRay/Scanners/C.html">CodeRay::Scanners::C</a>
+  
+    <li><a href="../CodeRay/Scanners/CPlusPlus.html">CodeRay::Scanners::CPlusPlus</a>
+  
+    <li><a href="../CodeRay/Scanners/CSS.html">CodeRay::Scanners::CSS</a>
+  
+    <li><a href="../CodeRay/Scanners/Clojure.html">CodeRay::Scanners::Clojure</a>
+  
+    <li><a href="../CodeRay/Scanners/Debug.html">CodeRay::Scanners::Debug</a>
+  
+    <li><a href="../CodeRay/Scanners/Delphi.html">CodeRay::Scanners::Delphi</a>
+  
+    <li><a href="../CodeRay/Scanners/Diff.html">CodeRay::Scanners::Diff</a>
+  
+    <li><a href="../CodeRay/Scanners/ERB.html">CodeRay::Scanners::ERB</a>
+  
+    <li><a href="../CodeRay/Scanners/Groovy.html">CodeRay::Scanners::Groovy</a>
+  
+    <li><a href="../CodeRay/Scanners/HAML.html">CodeRay::Scanners::HAML</a>
+  
+    <li><a href="../CodeRay/Scanners/HTML.html">CodeRay::Scanners::HTML</a>
+  
+    <li><a href="../CodeRay/Scanners/JSON.html">CodeRay::Scanners::JSON</a>
+  
+    <li><a href="../CodeRay/Scanners/Java.html">CodeRay::Scanners::Java</a>
+  
+    <li><a href="../CodeRay/Scanners/JavaScript.html">CodeRay::Scanners::JavaScript</a>
+  
+    <li><a href="../CodeRay/Scanners/PHP.html">CodeRay::Scanners::PHP</a>
+  
+    <li><a href="../CodeRay/Scanners/Python.html">CodeRay::Scanners::Python</a>
+  
+    <li><a href="../CodeRay/Scanners/Raydebug.html">CodeRay::Scanners::Raydebug</a>
+  
+    <li><a href="../CodeRay/Scanners/Ruby.html">CodeRay::Scanners::Ruby</a>
+  
+    <li><a href="../CodeRay/Scanners/SQL.html">CodeRay::Scanners::SQL</a>
+  
+    <li><a href="../CodeRay/Scanners/Scanner.html">CodeRay::Scanners::Scanner</a>
+  
+    <li><a href="../CodeRay/Scanners/Text.html">CodeRay::Scanners::Text</a>
+  
+    <li><a href="../CodeRay/Scanners/XML.html">CodeRay::Scanners::XML</a>
+  
+    <li><a href="../CodeRay/Scanners/YAML.html">CodeRay::Scanners::YAML</a>
+  
+    <li><a href="../CodeRay/Styles.html">CodeRay::Styles</a>
+  
+    <li><a href="../CodeRay/Styles/Alpha.html">CodeRay::Styles::Alpha</a>
+  
+    <li><a href="../CodeRay/Styles/Style.html">CodeRay::Styles::Style</a>
+  
+    <li><a href="../CodeRay/Tokens.html">CodeRay::Tokens</a>
+  
+    <li><a href="../CodeRay/Tokens/Undumping.html">CodeRay::Tokens::Undumping</a>
+  
+    <li><a href="../CodeRay/TokensProxy.html">CodeRay::TokensProxy</a>
+  
+    <li><a href="../CodeRay/WordList.html">CodeRay::WordList</a>
+  
+    <li><a href="../CodeRay/WordList/CaseIgnoring.html">CodeRay::WordList::CaseIgnoring</a>
+  
+  </ul>
+</nav>
+
+  </div>
+</nav>
+
+<div id="documentation">
+  <h1 class="module">module CodeRay::PluginHost</h1>
+
+  <div id="description" class="description">
+    
+<h1 id="label-PluginHost"><a href="PluginHost.html">PluginHost</a></h1>
+
+<p>A simple subclass/subfolder plugin system.</p>
+
+<p>Example:</p>
+
+<pre class="ruby"><span class="ruby-keyword">class</span> <span class="ruby-constant">Generators</span>
+  <span class="ruby-identifier">extend</span> <span class="ruby-constant">PluginHost</span>
+  <span class="ruby-identifier">plugin_path</span> <span class="ruby-string">'app/generators'</span>
+<span class="ruby-keyword">end</span>
+
+<span class="ruby-keyword">class</span> <span class="ruby-constant">Generator</span>
+  <span class="ruby-identifier">extend</span> <span class="ruby-constant">Plugin</span>
+  <span class="ruby-constant">PLUGIN_HOST</span> = <span class="ruby-constant">Generators</span>
+<span class="ruby-keyword">end</span>
+
+<span class="ruby-keyword">class</span> <span class="ruby-constant">FancyGenerator</span> <span class="ruby-operator">&lt;</span> <span class="ruby-constant">Generator</span>
+  <span class="ruby-identifier">register_for</span> :<span class="ruby-identifier">fancy</span>
+<span class="ruby-keyword">end</span>
+
+<span class="ruby-constant">Generators</span>[:<span class="ruby-identifier">fancy</span>]  <span class="ruby-comment">#-&gt; FancyGenerator</span>
+<span class="ruby-comment"># or</span>
+<span class="ruby-constant">CodeRay</span>.<span class="ruby-identifier">require_plugin</span> <span class="ruby-string">'Generators/fancy'</span>
+<span class="ruby-comment"># or</span>
+<span class="ruby-constant">Generators</span><span class="ruby-operator">::</span><span class="ruby-constant">Fancy</span>
+</pre>
+
+  </div><!-- description -->
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+    <!-- Constants -->
+    <section id="constants-list" class="section">
+      <h3 class="section-header">Constants</h3>
+      <dl>
+      
+        <dt id="HostNotFound">HostNotFound
+        
+        <dd class="description">
+        
+      
+        <dt id="PLUGIN_HOSTS">PLUGIN_HOSTS
+        
+        <dd class="description">
+        
+      
+        <dt id="PLUGIN_HOSTS_BY_ID">PLUGIN_HOSTS_BY_ID
+        
+        <dd class="description">
+        
+      
+        <dt id="PluginNotFound">PluginNotFound
+        
+        <dd class="description"><p>Raised if Encoders::[] fails because:</p>
+<ul><li>
+<p>a file could not be found</p>
+</li><li>
+<p>the requested <a href="Plugin.html">Plugin</a> is not registered</p>
+</li></ul>
+        
+      
+      </dl>
+    </section>
+    
+
+    
+
+    <!-- Methods -->
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Public Class Methods</h3>
+
+    
+      <div id="method-c-extended" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">extended</span><span
+            class="method-args">(mod)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Adds the module/class to the <a
+href="PluginHost.html#PLUGIN_HOSTS">PLUGIN_HOSTS</a> list.</p>
+          
+
+          
+          <div class="method-source-code" id="extended-source">
+            <pre><span class="ruby-comment"># File lib/coderay/helpers/plugin.rb, line 72</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">extended</span> <span class="ruby-identifier">mod</span>
+  <span class="ruby-constant">PLUGIN_HOSTS</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">mod</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- extended-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- extended-method -->
+
+    
+    </section><!-- public-class-method-details -->
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Public Instance Methods</h3>
+
+    
+      <div id="method-i-5B-5D" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">[]</span><span
+            class="method-args">(id, *args, &blk)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns the <a href="Plugin.html">Plugin</a> for <code>id</code>.</p>
+
+<p>Example:</p>
+
+<pre>yaml_plugin = MyPluginHost[:yaml]</pre>
+          
+
+          
+          <div class="method-source-code" id="5B-5D-source">
+            <pre><span class="ruby-comment"># File lib/coderay/helpers/plugin.rb, line 49</span>
+<span class="ruby-keyword">def</span> <span class="ruby-operator">[]</span> <span class="ruby-identifier">id</span>, *<span class="ruby-identifier">args</span>, &amp;<span class="ruby-identifier">blk</span>
+  <span class="ruby-identifier">plugin</span> = <span class="ruby-identifier">validate_id</span>(<span class="ruby-identifier">id</span>)
+  <span class="ruby-keyword">begin</span>
+    <span class="ruby-identifier">plugin</span> = <span class="ruby-identifier">plugin_hash</span>.[] <span class="ruby-identifier">plugin</span>, *<span class="ruby-identifier">args</span>, &amp;<span class="ruby-identifier">blk</span>
+  <span class="ruby-keyword">end</span> <span class="ruby-keyword">while</span> <span class="ruby-identifier">plugin</span>.<span class="ruby-identifier">is_a?</span> <span class="ruby-constant">Symbol</span>
+  <span class="ruby-identifier">plugin</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- 5B-5D-source -->
+          
+        </div>
+
+        
+        <div class="aliases">
+          Also aliased as: <a href="PluginHost.html#method-i-load">load</a>
+        </div>
+        
+
+        
+      </div><!-- 5B-5D-method -->
+
+    
+      <div id="method-i-all_plugins" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">all_plugins</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns an array of all Plugins.</p>
+
+<p>Note: This loads all plugins using load_all.</p>
+          
+
+          
+          <div class="method-source-code" id="all_plugins-source">
+            <pre><span class="ruby-comment"># File lib/coderay/helpers/plugin.rb, line 151</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">all_plugins</span>
+  <span class="ruby-identifier">load_all</span>
+  <span class="ruby-identifier">plugin_hash</span>.<span class="ruby-identifier">values</span>.<span class="ruby-identifier">grep</span>(<span class="ruby-constant">Class</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- all_plugins-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- all_plugins-method -->
+
+    
+      <div id="method-i-const_missing" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">const_missing</span><span
+            class="method-args">(const)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Tries to <code>load</code> the missing plugin by translating
+<code>const</code> to the underscore form (eg. LinesOfCode becomes
+lines_of_code).</p>
+          
+
+          
+          <div class="method-source-code" id="const_missing-source">
+            <pre><span class="ruby-comment"># File lib/coderay/helpers/plugin.rb, line 61</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">const_missing</span> <span class="ruby-identifier">const</span>
+  <span class="ruby-identifier">id</span> = <span class="ruby-identifier">const</span>.<span class="ruby-identifier">to_s</span>.
+    <span class="ruby-identifier">gsub</span>(<span class="ruby-regexp">%r([A-Z]+)([A-Z][a-z])/</span>,<span class="ruby-string">'\1_\2'</span>).
+    <span class="ruby-identifier">gsub</span>(<span class="ruby-regexp">%r([a-z\d])([A-Z])/</span>,<span class="ruby-string">'\1_\2'</span>).
+    <span class="ruby-identifier">downcase</span>
+  <span class="ruby-identifier">load</span> <span class="ruby-identifier">id</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- const_missing-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- const_missing-method -->
+
+    
+      <div id="method-i-default" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">default</span><span
+            class="method-args">(id = nil)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Define the default plugin to use when no plugin is found for a given id, or
+return the default plugin.</p>
+
+<p>See also map.</p>
+
+<pre class="ruby"><span class="ruby-keyword">class</span> <span class="ruby-constant">MyColorHost</span> <span class="ruby-operator">&lt;</span> <span class="ruby-constant">PluginHost</span>
+  <span class="ruby-identifier">map</span> :<span class="ruby-identifier">navy</span> =<span class="ruby-operator">&gt;</span> :<span class="ruby-identifier">dark_blue</span>
+  <span class="ruby-identifier">default</span> :<span class="ruby-identifier">gray</span>
+<span class="ruby-keyword">end</span>
+
+<span class="ruby-constant">MyColorHost</span>.<span class="ruby-identifier">default</span>  <span class="ruby-comment"># loads and returns the Gray plugin</span>
+</pre>
+          
+
+          
+          <div class="method-source-code" id="default-source">
+            <pre><span class="ruby-comment"># File lib/coderay/helpers/plugin.rb, line 114</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">default</span> <span class="ruby-identifier">id</span> = <span class="ruby-keyword">nil</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">id</span>
+    <span class="ruby-identifier">id</span> = <span class="ruby-identifier">validate_id</span> <span class="ruby-identifier">id</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-string">&quot;The default plugin can't be named \&quot;default\&quot;.&quot;</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">id</span> <span class="ruby-operator">==</span> <span class="ruby-value">:default</span>
+    <span class="ruby-identifier">plugin_hash</span>[<span class="ruby-value">:default</span>] = <span class="ruby-identifier">id</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">load</span> <span class="ruby-value">:default</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- default-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- default-method -->
+
+    
+      <div id="method-i-list" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">list</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns an array of all .rb files in the plugin path.</p>
+
+<p>The extension .rb is not included.</p>
+          
+
+          
+          <div class="method-source-code" id="list-source">
+            <pre><span class="ruby-comment"># File lib/coderay/helpers/plugin.rb, line 140</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">list</span>
+  <span class="ruby-constant">Dir</span>[<span class="ruby-identifier">path_to</span>(<span class="ruby-string">'*'</span>)].<span class="ruby-identifier">select</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">file</span><span class="ruby-operator">|</span>
+    <span class="ruby-constant">File</span>.<span class="ruby-identifier">basename</span>(<span class="ruby-identifier">file</span>)[<span class="ruby-regexp">%r^(?!_)\w+\.rb$/</span>]
+  <span class="ruby-keyword">end</span>.<span class="ruby-identifier">map</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">file</span><span class="ruby-operator">|</span>
+    <span class="ruby-constant">File</span>.<span class="ruby-identifier">basename</span>(<span class="ruby-identifier">file</span>, <span class="ruby-string">'.rb'</span>).<span class="ruby-identifier">to_sym</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- list-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- list-method -->
+
+    
+      <div id="method-i-load" class="method-detail method-alias">
+        
+        <div class="method-heading">
+          <span class="method-name">load</span><span
+            class="method-args">(id, *args, &blk)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+        </div>
+
+        
+
+        
+        <div class="aliases">
+          Alias for: <a href="PluginHost.html#method-i-5B-5D">[]</a>
+        </div>
+        
+      </div><!-- load-method -->
+
+    
+      <div id="method-i-load_all" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">load_all</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Loads all plugins using list and load.</p>
+          
+
+          
+          <div class="method-source-code" id="load_all-source">
+            <pre><span class="ruby-comment"># File lib/coderay/helpers/plugin.rb, line 39</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">load_all</span>
+  <span class="ruby-keyword">for</span> <span class="ruby-identifier">plugin</span> <span class="ruby-keyword">in</span> <span class="ruby-identifier">list</span>
+    <span class="ruby-identifier">load</span> <span class="ruby-identifier">plugin</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- load_all-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- load_all-method -->
+
+    
+      <div id="method-i-load_plugin_map" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">load_plugin_map</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Loads the map file (see map).</p>
+
+<p>This is done automatically when <a
+href="PluginHost.html#method-i-plugin_path">#plugin_path</a> is called.</p>
+          
+
+          
+          <div class="method-source-code" id="load_plugin_map-source">
+            <pre><span class="ruby-comment"># File lib/coderay/helpers/plugin.rb, line 159</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">load_plugin_map</span>
+  <span class="ruby-identifier">mapfile</span> = <span class="ruby-identifier">path_to</span> <span class="ruby-string">'_map'</span>
+  <span class="ruby-ivar">@plugin_map_loaded</span> = <span class="ruby-keyword">true</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">exist?</span> <span class="ruby-identifier">mapfile</span>
+    <span class="ruby-identifier">require</span> <span class="ruby-identifier">mapfile</span>
+    <span class="ruby-keyword">true</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-keyword">false</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- load_plugin_map-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- load_plugin_map-method -->
+
+    
+      <div id="method-i-map" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">map</span><span
+            class="method-args">(hash)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Map a plugin_id to another.</p>
+
+<p>Usage: Put this in a file plugin_path/_map.rb.</p>
+
+<pre class="ruby"><span class="ruby-keyword">class</span> <span class="ruby-constant">MyColorHost</span> <span class="ruby-operator">&lt;</span> <span class="ruby-constant">PluginHost</span>
+  <span class="ruby-identifier">map</span> :<span class="ruby-identifier">navy</span> =<span class="ruby-operator">&gt;</span> :<span class="ruby-identifier">dark_blue</span>,
+    :<span class="ruby-identifier">maroon</span> =<span class="ruby-operator">&gt;</span> :<span class="ruby-identifier">brown</span>,
+    :<span class="ruby-identifier">luna</span> =<span class="ruby-operator">&gt;</span> :<span class="ruby-identifier">moon</span>
+<span class="ruby-keyword">end</span>
+</pre>
+          
+
+          
+          <div class="method-source-code" id="map-source">
+            <pre><span class="ruby-comment"># File lib/coderay/helpers/plugin.rb, line 95</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">map</span> <span class="ruby-identifier">hash</span>
+  <span class="ruby-keyword">for</span> <span class="ruby-identifier">from</span>, <span class="ruby-identifier">to</span> <span class="ruby-keyword">in</span> <span class="ruby-identifier">hash</span>
+    <span class="ruby-identifier">from</span> = <span class="ruby-identifier">validate_id</span> <span class="ruby-identifier">from</span>
+    <span class="ruby-identifier">to</span> = <span class="ruby-identifier">validate_id</span> <span class="ruby-identifier">to</span>
+    <span class="ruby-identifier">plugin_hash</span>[<span class="ruby-identifier">from</span>] = <span class="ruby-identifier">to</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">plugin_hash</span>.<span class="ruby-identifier">has_key?</span> <span class="ruby-identifier">from</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- map-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- map-method -->
+
+    
+      <div id="method-i-plugin_hash" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">plugin_hash</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>A Hash of plugion_id =&gt; <a href="Plugin.html">Plugin</a> pairs.</p>
+          
+
+          
+          <div class="method-source-code" id="plugin_hash-source">
+            <pre><span class="ruby-comment"># File lib/coderay/helpers/plugin.rb, line 133</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">plugin_hash</span>
+  <span class="ruby-ivar">@plugin_hash</span> <span class="ruby-operator">||=</span> <span class="ruby-identifier">make_plugin_hash</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- plugin_hash-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- plugin_hash-method -->
+
+    
+      <div id="method-i-plugin_path" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">plugin_path</span><span
+            class="method-args">(*args)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>The path where the plugins can be found.</p>
+          
+
+          
+          <div class="method-source-code" id="plugin_path-source">
+            <pre><span class="ruby-comment"># File lib/coderay/helpers/plugin.rb, line 79</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">plugin_path</span> *<span class="ruby-identifier">args</span>
+  <span class="ruby-keyword">unless</span> <span class="ruby-identifier">args</span>.<span class="ruby-identifier">empty?</span>
+    <span class="ruby-ivar">@plugin_path</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">expand_path</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(*<span class="ruby-identifier">args</span>)
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-ivar">@plugin_path</span> <span class="ruby-operator">||=</span> <span class="ruby-string">''</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- plugin_path-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- plugin_path-method -->
+
+    
+      <div id="method-i-register" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">register</span><span
+            class="method-args">(plugin, id)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Every plugin must register itself for <code>id</code> by calling
+register_for, which calls this method.</p>
+
+<p>See <a
+href="Plugin.html#method-i-register_for">CodeRay::Plugin#register_for</a>.</p>
+          
+
+          
+          <div class="method-source-code" id="register-source">
+            <pre><span class="ruby-comment"># File lib/coderay/helpers/plugin.rb, line 128</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">register</span> <span class="ruby-identifier">plugin</span>, <span class="ruby-identifier">id</span>
+  <span class="ruby-identifier">plugin_hash</span>[<span class="ruby-identifier">validate_id</span>(<span class="ruby-identifier">id</span>)] = <span class="ruby-identifier">plugin</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- register-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- register-method -->
+
+    
+    </section><!-- public-instance-method-details -->
+  
+     <section id="protected-instance-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Protected Instance Methods</h3>
+
+    
+      <div id="method-i-make_plugin_hash" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">make_plugin_hash</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Return a plugin hash that automatically loads plugins.</p>
+          
+
+          
+          <div class="method-source-code" id="make_plugin_hash-source">
+            <pre><span class="ruby-comment"># File lib/coderay/helpers/plugin.rb, line 173</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">make_plugin_hash</span>
+  <span class="ruby-ivar">@plugin_map_loaded</span> <span class="ruby-operator">||=</span> <span class="ruby-keyword">false</span>
+  <span class="ruby-constant">Hash</span>.<span class="ruby-identifier">new</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">h</span>, <span class="ruby-identifier">plugin_id</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">id</span> = <span class="ruby-identifier">validate_id</span>(<span class="ruby-identifier">plugin_id</span>)
+    <span class="ruby-identifier">path</span> = <span class="ruby-identifier">path_to</span> <span class="ruby-identifier">id</span>
+    <span class="ruby-keyword">begin</span>
+      <span class="ruby-identifier">require</span> <span class="ruby-identifier">path</span>
+    <span class="ruby-keyword">rescue</span> <span class="ruby-constant">LoadError</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">boom</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-ivar">@plugin_map_loaded</span>
+        <span class="ruby-keyword">if</span> <span class="ruby-identifier">h</span>.<span class="ruby-identifier">has_key?</span>(<span class="ruby-value">:default</span>)
+          <span class="ruby-identifier">warn</span> <span class="ruby-string">'%p could not load plugin %p; falling back to %p'</span> <span class="ruby-operator">%</span> [<span class="ruby-keyword">self</span>, <span class="ruby-identifier">id</span>, <span class="ruby-identifier">h</span>[<span class="ruby-value">:default</span>]]
+          <span class="ruby-identifier">h</span>[<span class="ruby-value">:default</span>]
+        <span class="ruby-keyword">else</span>
+          <span class="ruby-identifier">raise</span> <span class="ruby-constant">PluginNotFound</span>, <span class="ruby-string">'%p could not load plugin %p: %s'</span> <span class="ruby-operator">%</span> [<span class="ruby-keyword">self</span>, <span class="ruby-identifier">id</span>, <span class="ruby-identifier">boom</span>]
+        <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">else</span>
+        <span class="ruby-identifier">load_plugin_map</span>
+        <span class="ruby-identifier">h</span>[<span class="ruby-identifier">plugin_id</span>]
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-comment"># Plugin should have registered by now</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">h</span>.<span class="ruby-identifier">has_key?</span> <span class="ruby-identifier">id</span>
+        <span class="ruby-identifier">h</span>[<span class="ruby-identifier">id</span>]
+      <span class="ruby-keyword">else</span>
+        <span class="ruby-identifier">raise</span> <span class="ruby-constant">PluginNotFound</span>, <span class="ruby-node">&quot;No #{self.name} plugin for #{id.inspect} found in #{path}.&quot;</span>
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- make_plugin_hash-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- make_plugin_hash-method -->
+
+    
+      <div id="method-i-path_to" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">path_to</span><span
+            class="method-args">(plugin_id)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns the expected path to the plugin file for the given id.</p>
+          
+
+          
+          <div class="method-source-code" id="path_to-source">
+            <pre><span class="ruby-comment"># File lib/coderay/helpers/plugin.rb, line 204</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">path_to</span> <span class="ruby-identifier">plugin_id</span>
+  <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span> <span class="ruby-identifier">plugin_path</span>, <span class="ruby-node">&quot;#{plugin_id}.rb&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- path_to-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- path_to-method -->
+
+    
+      <div id="method-i-validate_id" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">validate_id</span><span
+            class="method-args">(id)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Converts <code>id</code> to a Symbol if it is a String, or returns
+<code>id</code> if it already is a Symbol.</p>
+
+<p>Raises <code>ArgumentError</code> for all other objects, or if the given
+String includes non-alphanumeric characters (W).</p>
+          
+
+          
+          <div class="method-source-code" id="validate_id-source">
+            <pre><span class="ruby-comment"># File lib/coderay/helpers/plugin.rb, line 213</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">validate_id</span> <span class="ruby-identifier">id</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">id</span>.<span class="ruby-identifier">is_a?</span> <span class="ruby-constant">Symbol</span> <span class="ruby-keyword">or</span> <span class="ruby-identifier">id</span>.<span class="ruby-identifier">nil?</span>
+    <span class="ruby-identifier">id</span>
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">id</span>.<span class="ruby-identifier">is_a?</span> <span class="ruby-constant">String</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">id</span>[<span class="ruby-regexp">%r\w+/</span>] <span class="ruby-operator">==</span> <span class="ruby-identifier">id</span>
+      <span class="ruby-identifier">id</span>.<span class="ruby-identifier">downcase</span>.<span class="ruby-identifier">to_sym</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-node">&quot;Invalid id given: #{id}&quot;</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-node">&quot;String or Symbol expected, but #{id.class} given.&quot;</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- validate_id-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- validate_id-method -->
+
+    
+    </section><!-- protected-instance-method-details -->
+  
+  </section><!-- 5Buntitled-5D -->
+
+</div><!-- documentation -->
+
+
+<footer id="validator-badges">
+  <p><a href="http://validator.w3.org/check/referer">[Validate]</a>
+  <p>Generated by <a href="https://github.com/rdoc/rdoc">RDoc</a> 3.12.
+  <p>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish Rdoc Generator</a> 3.
+</footer>
+

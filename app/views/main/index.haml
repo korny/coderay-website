@@ -1,0 +1,25 @@
+.rubychan
+  = image_tag 'ruby-chan-coderay-small.png', :title => 'Ruby-chan', :alt => 'Ruby-chan'
+
+%p.big Fast and easy syntax highlighting for selected languages.
+
+%h3 Features
+
+= render 'features'
+
+%p{ :style => 'clear: left' }
+  The latest stable version is #{link_to latest_coderay_version, 'http://rubygems.org/gems/coderay'}.
+  More features are planned for #{link_to '1.2', 'http://odd-eyed-code.org/versions/15'}.
+
+%h3.demo Usage &amp; Live Demo
+
+.example
+  ~ syntax_highlight File.read(Rails.root + 'config' + 'usage.rb'), :ruby, :line_numbers => :table
+
+%p
+  More #{link_to 'documentation', '/doc/'} is also available.
+
+.contact
+  %a.FlattrButton{ :href => 'http://coderay.rubychan.de', :style => 'display: none', :rev => 'flattr;button:compact;', :title => 'Support CodeRay development!' }
+  %p.big
+    = nospam 'murphy@rubychan.de', 'contact the developer'
