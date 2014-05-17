@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 gem 'rails', '~> 3.2.18'
 gem 'mysql2'
-gem 'coderay'#, :github => 'rubychan/coderay'
+gem 'coderay'
 
 # prevent updating the server's gems
 gem 'rake'
@@ -30,10 +30,13 @@ gem 'haml'
 gem 'capistrano', '~> 2.15.5'  # TODO: capistrano 3 is a rewrite, need to rewrite Capfile
 gem 'rvm-capistrano'
 
+# See https://github.com/sstephenson/execjs#readme for more supported runtimes
+gem 'therubyracer', :platforms => :ruby
+
 # monitoring
 # gem 'newrelic_rpm'
 
-# To use debugger (ruby-debug for Ruby 1.8.7+, ruby-debug19 for Ruby 1.9.2+)
+# To use debugger
 # gem 'ruby-debug'
 # gem 'ruby-debug19', :require => 'ruby-debug'
 
