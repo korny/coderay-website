@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 gem 'rails', '~> 3.2.18'
 gem 'mysql2'
-gem 'coderay', :github => 'rubychan/coderay'
+gem 'coderay'#, :github => 'rubychan/coderay'
 
 # prevent updating the server's gems
 gem 'rake'
