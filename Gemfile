@@ -28,6 +28,7 @@ gem 'haml'
 
 # Deploy with Capistrano
 gem 'capistrano', '~> 2.15.5'  # TODO: capistrano 3 is a rewrite, need to rewrite Capfile
+gem 'rvm-capistrano'
 
 # monitoring
 # gem 'newrelic_rpm'

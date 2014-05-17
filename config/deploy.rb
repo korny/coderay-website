@@ -1,22 +1,30 @@
-require "bundler/capistrano"
+require 'bundler/capistrano'
+require 'rvm/capistrano'
+
 
 set :application, "coderay"
-set :repository,  "svn+ssh://rubychan.de/var/svn/coderay-website/new/trunk/"
 
-set :scm, :subversion
-# Or: `accurev`, `bzr`, `cvs`, `darcs`, `git`, `mercurial`, `perforce`, `subversion` or `none`
+set :scm, :git
+set :repository, "git@github.com:korny/coderay-website.git"
+set :branch, "master"
+set :deploy_via, :remote_cache
 
-role :web, "rubychan.de"                          # Your HTTP server, Apache/etc
-role :app, "rubychan.de"                          # This may be the same as your `Web` server
-role :db,  "rubychan.de", :primary => true        # This is where Rails migrations will run
+set :rvm_ruby_string, '2.1.0'
+
+role :web, "fallout-shelter"                          # Your HTTP server, Apache/etc
+role :app, "fallout-shelter"                          # This may be the same as your `Web` server
+role :db,  "fallout-shelter", :primary => true        # This is where Rails migrations will run
+
+set :ssh_options, { :forward_agent => true }
+set :use_sudo, false
+
+# if you want to clean up old releases on each deploy uncomment this:
+# after "deploy:restart", "deploy:cleanup"
 
 # If you aren't deploying to /u/apps/#{application} on the target
 # servers (which is the default), you can specify the actual location
 # via the :deploy_to variable:
-set :deploy_to, "/home/murphy/www/#{application}-cap"
-
-# if you're still using the script/reaper helper you will need
-# these http://github.com/rails/irs_process_scripts
+set :deploy_to, "/var/www/Kornelius-Kalnbach/#{application}"
 
 # If you are using Passenger mod_rails uncomment this:
 namespace :deploy do
@@ -27,5 +35,4 @@ namespace :deploy do
   end
 end
 
-# if you want to clean up old releases on each deploy uncomment this:
-# after "deploy:restart", "deploy:cleanup"
+default_run_options[:pty] = true
