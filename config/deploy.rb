@@ -1,7 +1,6 @@
 require 'bundler/capistrano'
 require 'rvm/capistrano'
 
-
 set :application, "coderay"
 
 set :scm, :git
@@ -9,7 +8,7 @@ set :repository, "git@github.com:korny/coderay-website.git"
 set :branch, "master"
 set :deploy_via, :remote_cache
 
-set :rvm_ruby_string, '2.1.0'
+# set :rvm_ruby_string, '2.1.0'
 
 role :web, "fallout-shelter"                          # Your HTTP server, Apache/etc
 role :app, "fallout-shelter"                          # This may be the same as your `Web` server
