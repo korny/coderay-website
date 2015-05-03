@@ -26,9 +26,11 @@ gem 'haml'
 # gem 'unicorn'
 # gem 'passenger'
 
-# Deploy with Capistrano
-gem 'capistrano', '~> 2.15.5'  # TODO: capistrano 3 is a rewrite, need to rewrite Capfile
-gem 'rvm-capistrano'
+group :development do
+  # Deploy with Capistrano
+  gem 'capistrano', '~> 2.15.5'  # TODO: capistrano 3 is a rewrite, need to rewrite Capfile
+  gem 'rvm-capistrano'
+end
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 gem 'therubyracer', :platforms => :ruby
