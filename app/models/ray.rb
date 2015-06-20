@@ -9,6 +9,8 @@ class Ray < ActiveRecord::Base
   validates_inclusion_of :bot, :in => %w(R), :message => 'you are? Then die!'
   attr_accessor :bot
   
+  attr_accessible :language_id, :name, :code, :author, :bot
+  
   def ever_updated?
     created_at != updated_at
   end
