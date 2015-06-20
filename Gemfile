@@ -18,7 +18,7 @@ group :assets do
   gem 'turbo-sprockets-rails3'
 end
 
-gem 'jquery-rails'
+gem 'jquery-rails', github: 'rails/jquery-rails', branch: '3-1-stable'
 gem 'prototype-rails' #, :git => 'git://github.com/rubychan/prototype-rails.git'
 gem 'haml'
 
