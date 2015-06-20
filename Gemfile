@@ -29,7 +29,7 @@ gem 'haml'
 group :development do
   # Deploy with Capistrano
   gem 'capistrano', '~> 2.15.5'  # TODO: capistrano 3 is a rewrite, need to rewrite Capfile
-  gem 'rvm-capistrano'
+  gem 'rvm-capistrano', require: false
 end
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
