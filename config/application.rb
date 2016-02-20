@@ -46,6 +46,12 @@ module Coderay
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
 
+    config.after_initialize do
+      class ActiveRecord::ConnectionAdapters::AbstractMysqlAdapter
+        NATIVE_DATABASE_TYPES[:primary_key] = 'int(11) auto_increment PRIMARY KEY'
+      end if defined? ActiveRecord::ConnectionAdapters::AbstractMysqlAdapter
+    end
+
     config.generators.stylesheet_engine = :sass
     # config.sass.line_comments = false
     # config.sass.preferred_syntax = :sass

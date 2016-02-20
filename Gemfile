@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'rails', github: 'rails/rails', branch: '3-2-stable'
-gem 'mysql2'
+gem 'mysql2', '~> 0.3.20'
 gem 'coderay'
 
 # prevent updating the server's gems
@@ -44,7 +44,7 @@ gem 'therubyracer', :platforms => :ruby
 
 # outsourced Rails parts
 gem 'dynamic_form'
-gem 'will_paginate'
+gem 'will_paginate', '~> 3.0.7'
 
 # gem 'syntax', :require => 'syntax/convertors/html'
 # gem 'highlight', :require => 'simplabs/highlight'

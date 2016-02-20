@@ -30,10 +30,6 @@ ActiveRecord::Schema.define(:version => 6) do
     t.datetime "updated_at",                                :null => false
   end
 
-  create_table "schema_info", :id => false, :force => true do |t|
-    t.integer "version"
-  end
-
   create_table "styles", :force => true do |t|
     t.string "name", :limit => 30, :default => "", :null => false
     t.text   "desc",                               :null => false
