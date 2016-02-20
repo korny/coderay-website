@@ -1,7 +1,7 @@
 module ApplicationHelper
   
   def latest_coderay_version
-    '1.1.0'
+    '1.1.1'
   end
   
   SPAM = (('a'..'z').to_a.join + '!?#*+$%^~').split('')
