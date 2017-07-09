@@ -73,4 +73,5 @@ group :test do
   # Pretty printed test output
   # gem 'turn', :require => false
   # gem 'minitest', '~> 4.7'  # avoid strange warnings
+  gem 'test-unit', '~> 3.0'
 end
